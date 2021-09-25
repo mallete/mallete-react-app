@@ -6,11 +6,11 @@ import {
   Link
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Main from "./pages/Main";
-import Search from "./pages/Search";
-import CreateAccount from "./pages/CreateAccount";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Main from "./Pages/Main";
+import Search from "./Pages/Search";
+import CreateAccount from "./Pages/CreateAccount";
 
 function App() {
   return (

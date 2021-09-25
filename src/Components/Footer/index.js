@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss'
-import mallete from "../../assets/Icons/mallete.png"
+import mallete from "../../Assets/Icons/mallete.png"
 function Footer () {
     return (
         <footer className="principal-container container-fluid">

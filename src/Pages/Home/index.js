@@ -1,7 +1,7 @@
 import React from "react";
 import  Card  from "../../Components/Card";
 import Footer from "../../Components/Footer";
-import library from "../../assets/Images/library.png"
+import library from "../../Assets/Images/library.png"
 
 //import './App.scss';
 
