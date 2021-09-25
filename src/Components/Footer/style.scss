@@ -1,0 +1,28 @@
+$royal-wine: #4E213C;
+$plastik: #FCFDFD;
+
+.principal-container{   
+    color: $plastik;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: $royal-wine;
+}
+
+.logo{
+    width: 300px;
+}
+
+hr{
+    background-color:white;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    &:hover{
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+
