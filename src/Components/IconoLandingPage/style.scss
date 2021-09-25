@@ -1,0 +1,19 @@
+@import "../../Assets/GlobalStyles/style.scss";
+
+.icon-container{
+    
+    display: flex;
+}
+
+/*.icon-img{
+    display: inline;
+
+}*/
+
+.icon-text{
+    font-size: 15px;
+    margin-left: .5rem;
+    padding-top: 10px;
+    //background-color: cyan;
+    text-align: center;
+}
