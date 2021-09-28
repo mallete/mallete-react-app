@@ -24,3 +24,16 @@ border-color: $plastik;
 border-radius: 4px;
 border: 2px;
 }
+
+.btn{
+    padding: .875rem;
+    min-width: 14rem;
+    border-radius: .125rem;
+    font-weight: bold;
+    font-size: 1.125rem;
+    box-shadow: $dark-wine;
+    &.btn-primary{
+        background-color: $royal-wine;
+    }
+}
+

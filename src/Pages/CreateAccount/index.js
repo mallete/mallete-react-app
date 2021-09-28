@@ -1,10 +1,11 @@
 import React from "react";
 //import './App.scss';
+import RegisterCard from "../../Components/Register";
 
 function CreateAccount() {
   return (
     <>
-    <h1>Registro</h1>
+    <RegisterCard/>
     </>
   );
 }
