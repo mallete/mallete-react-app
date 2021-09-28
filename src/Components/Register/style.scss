@@ -1,0 +1,34 @@
+@import "../../Assets/GlobalStyles/style.scss";
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+#register-form{
+    width: 652px;
+    height: 892px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 2px lightgray;
+}
+
+h4{
+    text-align: center;
+    color: $royal-wine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 345px;
+    height: 50px;
+
+}

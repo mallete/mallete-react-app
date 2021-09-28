@@ -1,6 +1,7 @@
 main{
     padding: 16px;
 }
+
 // Principal
 $royal-wine: #4E213C;
 // Complementary grays
@@ -23,5 +24,9 @@ $patria: #F926A5;
 // Alerts
 $carmesi: #F9264D;
 // Shadows
-$dark-blue: #001E2C;
-$dark-wine: #2C001A;
+//$dark-blue: #001E2C;
+//$dark-wine: #2C001A;
+
+
+$dark-wine: 0px 4px 4px 0px rgba(44,0,26,.25);
+$dark-blue: 0px 4px 4px 0px  rgba(0,30,44,.25)

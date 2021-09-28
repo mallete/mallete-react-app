@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.scss";
 
-const Button = props =>{
-    const {text,style} = props
+const Button = function (props){
+    const {text,template="btn btn-primary",handler} = props
     return(
-        <button type="button" className={style}>{text}</button>
+        <button type="button" className={template} onClick={handler}>{text}</button>
     );
 }
 
