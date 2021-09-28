@@ -1,0 +1,128 @@
+// Principal
+$royal-wine: #4E213C;
+$dark-sky:#2A2b2c;
+// Complementary grays
+$grabo: #3E484C;
+$valspar: #ABB6BA;
+$smoke: #DDE2E3;
+$ghost: #F7F8F8;
+$plastik: #FCFDFD; 
+$riolita: #EAEBEB;
+// Complementary blues
+$navy: #0A4964;
+$capri: #0E6286;
+$ceruleo: #129DD9;
+$cristal-sea: #26BAF9;
+// Complementary roses
+$tiro: #640A40;
+$guinda: #860E56;
+$rose: #D91289;
+$patria: #F926A5;
+// Alerts
+$carmesi: #F9264D;
+// Shadows
+$dark-blue: #001E2C;
+$dark-wine: #2C001A;
+
+nav{
+    background-color: $royal-wine;
+}.navbar-toggler-icon{
+    filter: brightness(0) invert(1)
+}
+.nav-link{
+    color: $plastik !important;
+    margin-left: 1rem;
+    &:hover{
+        text-decoration: underline ;
+    }
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    padding: 0;
+}
+#registro{
+    background-color: $carmesi;
+    border: none;
+    width: 100px;
+    height: 30px;
+    padding-top: 2px;
+    margin-left: 1rem;
+    &:hover{    
+        color: $plastik;
+    }
+}
+#login{
+    margin-left: 1rem;
+}
+.image-container{
+    background-image: url(../Img/library.png);
+    background-size: cover;
+    height: 92vh;
+    color: $plastik;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-img{
+    color: $plastik;
+    height: 35px;
+    font-size: 35px;
+    padding: 0;
+    width: 150px;
+    font-size: 23px;
+    font-weight: bold;
+    box-shadow: 2px 2px $valspar;
+    &:hover{
+        color:$carmesi;
+        background-color: $ghost;
+    }
+}
+.title{
+    font-size: 2rem; 
+    margin-top: 7rem;
+    text-shadow: $valspar 0.1em 0.1em 0.2em
+}
+.card{
+    border: none;
+    color: $dark-sky;
+}
+#signature{
+    background-image: url(../Img/signature.png);
+    background-size: cover;
+    height: 18rem;
+    width: 28rem;
+    border: none;
+}
+.link{
+    color: $plastik;
+    text-decoration: none;
+    &:hover{
+        color: $plastik;
+        text-decoration: underline;
+    }
+}
+.footer-container{
+    background-color: $royal-wine;
+    padding: 30px;
+    color: $plastik;
+}.logo{
+    width: 300px;
+}hr{
+    background-color: $plastik;
+}
+
+@media only screen and (min-width: 576px){
+    .title{
+        font-size: 70px;
+    }
+}
+
+@media only screen and (min-width: 576px){
+    #btn-img{
+        width: 400px;
+        height: 40px;   
+        color: $plastik;
+    }
+}
