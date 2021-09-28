@@ -1,10 +1,11 @@
 import React from "react";
+import LoginCard from "../../Components/LoginCard";
 //import './App.scss';
 
 function Login() {
   return (
     <>
-    <h1>Login</h1>
+    <LoginCard/>
     </>
   );
 }
