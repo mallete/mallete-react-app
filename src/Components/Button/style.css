@@ -1,0 +1,29 @@
+main {
+  padding: 16px;
+}
+
+.btn-registro {
+  background-color: #F9264D;
+  color: #EAEBEB;
+  height: 40px;
+  width: 150px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-login {
+  background-color: #4E213C;
+  color: #FCFDFD;
+  height: 40px;
+  width: 150px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-color: #FCFDFD;
+  border-radius: 4px;
+  border: 2px;
+}
+/*# sourceMappingURL=style.css.map */
