@@ -1,0 +1,22 @@
+main {
+  padding: 16px;
+}
+
+.plan {
+  color: #640A40;
+  font-weight: bold;
+}
+
+.price {
+  color: #D91289;
+}
+
+.features {
+  color: #2A2b2c;
+}
+
+.card {
+  height: 70vh;
+  border: solid 2px #860E56;
+}
+/*# sourceMappingURL=style.css.map */

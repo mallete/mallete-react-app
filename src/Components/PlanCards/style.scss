@@ -1,0 +1,17 @@
+@import "../../Assets/GlobalStyles/style.scss";
+
+.plan{
+    color: $tiro;
+    font-weight: bold;
+}
+.price{
+    color: $rose;
+}
+.features{
+    color: $dark-sky;
+}
+.card{
+    height: 70vh;
+  
+    border: solid 2px $guinda;
+}
