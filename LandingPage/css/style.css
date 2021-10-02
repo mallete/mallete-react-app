@@ -119,9 +119,6 @@ hr {
   .title {
     font-size: 70px;
   }
-}
-
-@media only screen and (min-width: 576px) {
   #btn-img {
     width: 400px;
     height: 40px;
