@@ -1,6 +1,7 @@
 @import "../../Assets/GlobalStyles/style.scss";
 
 .plan{
+    font-size: 40px;
     color: $tiro;
     font-weight: bold;
 }
@@ -11,7 +12,49 @@
     color: $dark-sky;
 }
 .card{
-    height: 70vh;
-  
+    //height: 70vh;
     border: solid 2px $guinda;
+}
+.btn-elegir{
+    background-color: $guinda;
+    color: $plastik;
+    height: 35px;
+    width: 30px;
+    margin-left: 2.5rem;
+    padding: 0%;
+    &:hover{
+        background-color: $ghost;
+        color: $guinda;
+    }
+}
+
+#elegir{
+    margin-top: 2rem;
+}
+#elegir2{
+    margin-top: 2.5rem;
+}
+#elegir3{
+    margin-top: 1rem;
+}
+
+@media only screen and (min-width: 768px){
+    .plan{
+        font-size: 25PX;
+    }
+    .btn-elegir{
+        background-color: $guinda;
+        color: $plastik;
+        height: 35px;
+        width: 50px;
+        padding: 0%;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .card{
+        height: 70vh;
+    }
+    .plan{
+        font-size: 40PX;
+    }
 }

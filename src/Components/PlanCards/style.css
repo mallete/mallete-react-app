@@ -3,6 +3,7 @@ main {
 }
 
 .plan {
+  font-size: 40px;
   color: #640A40;
   font-weight: bold;
 }
@@ -16,7 +17,54 @@ main {
 }
 
 .card {
-  height: 70vh;
   border: solid 2px #860E56;
+}
+
+.btn-elegir {
+  background-color: #860E56;
+  color: #FCFDFD;
+  height: 35px;
+  width: 30px;
+  margin-left: 2.5rem;
+  padding: 0%;
+}
+
+.btn-elegir:hover {
+  background-color: #F7F8F8;
+  color: #860E56;
+}
+
+#elegir {
+  margin-top: 2rem;
+}
+
+#elegir2 {
+  margin-top: 2.5rem;
+}
+
+#elegir3 {
+  margin-top: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .plan {
+    font-size: 25PX;
+  }
+  .btn-elegir {
+    background-color: #860E56;
+    color: #FCFDFD;
+    height: 35px;
+    width: 50px;
+    padding: 0%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card {
+    height: 70vh;
+  }
+  .plan {
+    font-size: 40PX;
+  }
 }
 /*# sourceMappingURL=style.css.map */
