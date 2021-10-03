@@ -25,7 +25,7 @@ main {
   color: #FCFDFD;
   height: 35px;
   width: 30px;
-  margin-left: 2.5rem;
+  margin-left: 2rem;
   padding: 0%;
 }
 
@@ -39,11 +39,23 @@ main {
 }
 
 #elegir2 {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 #elegir3 {
   margin-top: 1rem;
+}
+
+@media only screen and (min-width: 576px) {
+  #elegir {
+    margin-top: 8rem;
+  }
+  #elegir2 {
+    margin-top: 4rem;
+  }
+  #elegir3 {
+    margin-top: 1rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
