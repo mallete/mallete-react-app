@@ -31,8 +31,12 @@ function LoginCard() {
             <div className="row row-cols-1" id="login-form">
                 <IconBlack id="login-icon"/>
                 <h4><b>Iniciar Sesion</b></h4>
+                {/*
                 <input name="email" type="text" textLabel="Correo" textInput="Correo" onChange={inputHandler}/>
                 <input name="password"  type="password" textLabel="Contraseña" textInput="Contraseña"  onChange={inputHandler} />
+                */}
+                <InputGeneric name="email" inputType="text" textLabel="Correo" placeHolderText="Correo" handler={inputHandler}/>
+                <InputGeneric name="password" inputType="password" textLabel="Contraseña" placeHolderText="Contraseña" handler={inputHandler}/>
                 <div className="button-container">
                     <Button text="Iniciar Sesion" template="btn btn-primary m-3" handler={sendData} />
                 </div>
