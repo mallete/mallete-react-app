@@ -1,10 +1,11 @@
 import React from "react";
+import BulletinTable from "../../Components/BulletinTable";
 //import './App.scss';
 
 function Search() {
   return (
     <>
-    <h1>Search</h1>
+    <BulletinTable/>
     </>
   );
 }
