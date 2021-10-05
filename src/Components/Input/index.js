@@ -3,12 +3,12 @@ import "./style.scss";
 
 
 const InputGeneric = (props) => {
-    const { textLabel, placeHolderText, inputType, handler } = props
+    const { textLabel, placeHolderText, inputType, handler, name, inputId } = props
     return (
         <>
             <div class="form-group">
-                <label for="InputGeneric"><b>{textLabel}</b></label>
-                <input type={inputType} class="form-control" id="InputGeneric" aria-describedby="Help" placeholder={placeHolderText} onChange={handler} />
+                <label for={inputId}><b>{textLabel}</b></label>
+                <input name={name} type={inputType} class="form-control" id={inputId} aria-describedby="Help" placeholder={placeHolderText} onChange={handler} />
                 <small id="Help" class="form-text text-muted">*Texto valido/Texto invalido</small>
             </div>
         </>
