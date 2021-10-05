@@ -28,8 +28,8 @@ const fetchData = ({
       ...headersObj,
     },
   })
-    .then(({ data: { payload } }) => {
-      return payload
+    .then(({data: {data}} ) => {
+      return data
     })
     .catch((error) => {
       console.log(error.response)

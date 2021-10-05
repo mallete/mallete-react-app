@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,9 +12,12 @@ import Main from "./Pages/Main";
 import Search from "./Pages/Search";
 import CreateAccount from "./Pages/CreateAccount";
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const queryClient = new QueryClient()
+  //const {authToken, setauthToken} = useState()  
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -60,6 +63,7 @@ function App() {
           </Switch>
         </div>
       </Router>
+      <ToastContainer />
     </QueryClientProvider>
   );
 }
