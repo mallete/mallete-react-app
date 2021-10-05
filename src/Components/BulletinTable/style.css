@@ -1,0 +1,29 @@
+main {
+  padding: 16px;
+}
+
+.header {
+  color: #FCFDFD;
+  background-color: #860E56;
+}
+
+table {
+  color: #2A2b2c;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f3f9;
+}
+
+td {
+  color: #2A2b2c;
+}
+
+.material-icons {
+  color: #BF0000;
+}
+
+.material-icons-sharp {
+  color: #ABB6BA;
+}
+/*# sourceMappingURL=style.css.map */

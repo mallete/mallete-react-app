@@ -1,0 +1,20 @@
+@import "../../Assets/GlobalStyles/style.scss";
+.header{
+    color: $plastik;
+    background-color: $guinda;
+}
+table{
+    color: $dark-sky;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: $transparent-rose;
+}
+td{
+    color: $dark-sky;
+}
+.material-icons { 
+    color:$red;
+}
+.material-icons-sharp{
+    color: $valspar;
+}
