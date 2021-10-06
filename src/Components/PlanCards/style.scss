@@ -27,8 +27,8 @@
         color: $guinda;
     }
 }
-.material-icons{
-    color: black;
+#last-icon{
+    margin-bottom: 4rem;
 }
 #elegir{
     margin-top: 2rem;
@@ -39,9 +39,10 @@
 #elegir3{
     margin-top: 1rem;
 }
+
 @media only screen and (min-width: 576px){
     #elegir{
-        margin-top: 8rem;
+        margin-top: 7rem;
     }
     #elegir2{
         margin-top: 4rem;
