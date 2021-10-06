@@ -28,7 +28,9 @@ function LoginCard() {
     useEffect(() => {
         if(loggedUser.isSuccess && loggedUser.data){
             const {token} = loggedUser.data
+            const {userId} = loggedUser.data
             localStorage.setItem("authenticationToken",token)
+            localStorage.setItem("userId",userId)
             toast("Bienvenido a Mallete!", 
             {
                 position: "top-right",
