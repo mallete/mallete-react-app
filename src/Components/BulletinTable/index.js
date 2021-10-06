@@ -30,8 +30,8 @@ function BulletinTable (props) {
                     <td>Treviño Raul Gil Mendoza</td>
                     <td>Secretaría de movilidad, Secreataría de Planeación Admon. y Finanzas</td>
                     <td>19/09/2021</td>
-                    <td><span class="material-icons">notifications_active</span></td>
-                    <td><span class="material-icons">event_available</span></td>
+                    <td><span class="material-icons active-notification">notifications_active</span></td>
+                    <td><span class="material-icons active-notification">event_available</span></td>
                 </tr>
             </tbody>
         </Table>
