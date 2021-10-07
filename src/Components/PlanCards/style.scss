@@ -1,20 +1,21 @@
 @import "../../Assets/GlobalStyles/style.scss";
 
-.plan{
-    font-size: 40px;
-    color: $tiro;
-    font-weight: bold;
-}
-.price{
-    color: $rose;
-}
-.features{
-    color: $dark-sky;
-}
-.card{
-    //height: 70vh;
+.card-plan{
     border: solid 2px $guinda;
+    .plan{
+        font-size: 40px;
+        color: $tiro;
+        font-weight: bold;
+    }
+    .price{
+        color: $rose;
+    }
+    .features{
+        color: $dark-sky;
+    }
+    
 }
+
 .btn-elegir{
     background-color: $guinda;
     color: $plastik;
@@ -27,6 +28,7 @@
         color: $guinda;
     }
 }
+
 #last-icon{
     margin-bottom: 4rem;
 }
@@ -65,9 +67,12 @@
     }
 }
 @media only screen and (min-width: 1200px){
-    .card{
-        height: 70vh;
+    .card-plan{
+        &.card{
+            height: 70vh;
+        }
     }
+    
     .plan{
         font-size: 40PX;
     }
