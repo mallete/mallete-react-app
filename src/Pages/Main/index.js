@@ -1,13 +1,17 @@
-import React from "react";
-import PlanCard from "../../Components/PlanCards";
-//import './App.scss';
+import React from 'react'
+import Footer from '../../Components/Footer'
+import NavBar from '../../Components/NavBar'
+import PlanCard from '../../Components/PlanCards'
+// import './App.scss';
 
-function Main() {
+function Main () {
   return (
     <>
-    <PlanCard/>
+      <NavBar />
+      <PlanCard />
+      <Footer />
     </>
-  );
+  )
 }
 
-export default Main;
+export default Main

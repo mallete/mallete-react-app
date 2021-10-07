@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from 'react-router-dom'
 
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Main from "./Pages/Main";
-import Search from "./Pages/Search";
-import CreateAccount from "./Pages/CreateAccount";
+import Home from './Pages/Home'
+import Login from './Pages/Login'
+import Main from './Pages/Main'
+import Search from './Pages/Search'
+import CreateAccount from './Pages/CreateAccount'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-function App() {
+function App () {
   const queryClient = new QueryClient()
-  //const {authToken, setauthToken} = useState()  
+  // const {authToken, setauthToken} = useState()
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -25,19 +25,19 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to='/'>Home</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to='/login'>Login</Link>
               </li>
               <li>
-                <Link to="/main">Main</Link>
+                <Link to='/main'>Main</Link>
               </li>
               <li>
-                <Link to="/búsqueda">Search</Link>
+                <Link to='/búsqueda'>Search</Link>
               </li>
               <li>
-                <Link to="/registro">Create account</Link>
+                <Link to='/registro'>Create account</Link>
               </li>
             </ul>
           </nav>
@@ -45,19 +45,19 @@ function App() {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-          <Route exact path="/">
+            <Route exact path='/'>
               <Home />
             </Route>
-            <Route path="/login">
+            <Route path='/login'>
               <Login />
             </Route>
-            <Route path="/main">
+            <Route path='/main'>
               <Main />
             </Route>
-            <Route path="/búsqueda">
+            <Route path='/búsqueda'>
               <Search />
             </Route>
-            <Route path="/registro">
+            <Route path='/registro'>
               <CreateAccount />
             </Route>
           </Switch>
@@ -65,7 +65,7 @@ function App() {
       </Router>
       <ToastContainer />
     </QueryClientProvider>
-  );
+  )
 }
 
-export default App;
+export default App
