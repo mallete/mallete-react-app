@@ -1,12 +1,12 @@
 @import "../../Assets/GlobalStyles/style.scss";
 
-.navbar{
+.navbar-logged{
     background-color: $ghost;
 }
 .navbar-toggler-icon{
     filter: brightness(0) invert(1)
 }
-.link{
+.link-perfil{
     color: $dark-sky;
     &:hover{
         font-weight: bold;
@@ -20,7 +20,7 @@
 #perfil{
     margin-right: none;
 }
-.ref{
+.link-navbar-logged{
     color:$dark-sky;
     &:hover{
         font-weight: bold;

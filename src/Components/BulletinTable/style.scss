@@ -1,10 +1,7 @@
 @import "../../Assets/GlobalStyles/style.scss";
-.header{
+.tab-header{
     color: $plastik;
     background-color: $guinda;
-}
-table{
-    color: $dark-sky;
 }
 .table-striped tbody tr:nth-of-type(odd){
     background-color: $transparent-rose;
@@ -12,9 +9,9 @@ table{
 td{
     color: $dark-sky;
 }
-.active-notification { 
+.active-notification{ 
     color:$red;
 }
-.material-icons-sharp{
+.unactive-notification{
     color: $valspar;
 }
