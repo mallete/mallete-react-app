@@ -1,13 +1,14 @@
-import React from "react";
-import BulletinTable from "../../Components/BulletinTable";
-//import './App.scss';
+import React from 'react'
+import BulletinTable from '../../Components/BulletinTable'
 
-function Search() {
+// import './App.scss';
+
+function Search () {
   return (
     <>
-    <BulletinTable/>
+      <BulletinTable />
     </>
-  );
+  )
 }
 
-export default Search;
+export default Search

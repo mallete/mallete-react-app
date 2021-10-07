@@ -10,7 +10,7 @@ function PlanCards () {
   return (
     <div className='container'>
       <CardDeck>
-        <Card>
+        <Card className='card-plan'>
           <CardBody>
             <CardTitle tag='h1' className='plan text-center mb-3'>
               Básico
@@ -19,15 +19,15 @@ function PlanCards () {
               MXN 0.00 / mes*
             </CardSubtitle>
             <CardText>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>folder_open</span>5 expedientes
                 personalizados
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>timelapse</span>Sin tiempo de
                 expiración
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>timer</span>Actualización diaria en
                 la plataforma
               </p>
@@ -35,7 +35,7 @@ function PlanCards () {
             <Button id='elegir' className='btn-elegir'>Elegir</Button>
           </CardBody>
         </Card>
-        <Card>
+        <Card className='card-plan'>
           <CardBody>
             <CardTitle tag='h1' className='plan text-center mb-3'>
               Profesional
@@ -44,19 +44,19 @@ function PlanCards () {
               MXN 300.00 / mes*
             </CardSubtitle>
             <CardText>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>folder_open</span>20 expedientes
                 personalizados
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>timelapse</span>Sin tiempo de
                 expiración
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>timer</span>Actualización diaria en
                 la plataforma
               </p>
-              <p id='last-icon'>
+              <p id='last-icon' className='features'>
                 <span class='material-icons'>insert_invitation</span>Tareas
                 personalizadas a los boletines
               </p>
@@ -87,7 +87,7 @@ function PlanCards () {
             />
           </CardBody>
         </Card>
-        <Card>
+        <Card className='card-plan'>
           <CardBody>
             <CardTitle tag='h1' className='plan text-center mb-3'>
               Profesional+
@@ -96,23 +96,23 @@ function PlanCards () {
               MXN 600.00 / mes*
             </CardSubtitle>
             <CardText>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>folder_open</span>50 expedientes
                 personalizados
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>timelapse</span>Sin tiempo de
                 expiración
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>timer</span>Actualización diaria en
                 la plataforma
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>insert_invitation</span>Tareas
                 personalizadas a los boletines
               </p>
-              <p>
+              <p className='features'>
                 <span class='material-icons'>perm_phone_msg</span>Soporte
                 personalizado
               </p>
