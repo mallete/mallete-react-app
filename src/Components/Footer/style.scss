@@ -7,7 +7,7 @@
     padding: 15px;
     background-color: $ghost;
 }
-.link-footer{
+.link-footer-component{
     color: $dark-sky;
     text-decoration: none;
     &:hover{
@@ -20,7 +20,7 @@
 }
 
 @media only screen and (min-width: 576px){
-    .link-footer{
+    .link-footer-component{
         margin-right: 5rem;
     }
     .copyright{
