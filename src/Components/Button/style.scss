@@ -1,6 +1,6 @@
 @import "../../Assets/GlobalStyles/style.scss";
 
-.btn-registro{
+/*.btn-registro{
 background-color: $carmesi;
 color: $riolita;
 height: 40px;
@@ -23,7 +23,7 @@ font-weight: bold;
 border-color: $plastik;
 border-radius: 4px;
 border: 2px;
-}
+}*/
 
 .btn{
     padding: .875rem;
@@ -34,6 +34,33 @@ border: 2px;
     box-shadow: $dark-wine;
     &.btn-primary{
         background-color: $royal-wine;
+        border-color: $plastik;
+    }
+}
+
+.btn-landing{
+    padding: 0%;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.125rem;
+    box-shadow: $plastik;
+    color: $plastik;
+    height: 38px;
+    width: 138px;
+    &.btn-login{
+        background-color: $royal-wine;
+        border-color: $plastik;
+        &:hover{
+            background-color: $plastik;
+            color: $dark-sky;
+        }
+    }
+    &.btn-registro{
+        background-color: $carmesi;
+        &:hover{
+            color: $dark-sky;
+            border-color: $plastik;
+        }
     }
 }
 
