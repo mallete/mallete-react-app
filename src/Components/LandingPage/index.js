@@ -1,6 +1,8 @@
 import React from 'react'
+import FooterLanding from '../FooterLanding'
 import '../LandingPage/css/style.scss'
-import Mallete from './Img/mallete.png'
+import NavigationBar from '../NavigationBar'
+//import Mallete from './Img/mallete.png'
 import Signature from './Img/signature.png'
 
 const LandingPage = () => {
@@ -8,28 +10,7 @@ const LandingPage = () => {
     <>
       <div className='landing-template'>
         {/* Navbar */}
-        <nav className='navbar landing navbar-expand-lg navbar-light'>
-          <a className='navbar-brand ml-3' href='#'>
-            <img className='ml-3' src={Mallete} width='180' height='35' alt='logo de mallete' />
-          </a>
-          <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-            <span className='navbar-toggler-icon' />
-          </button>
-
-          <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul className='navbar-nav ml-auto mr-5'>
-              <li className='nav-item active'>
-                <a className='nav-link links-landing' href='#'>Planes</a>
-              </li>
-              <li className='nav-item active'>
-                <a type='button' className='btn btn-outline-light mt-1' href='#' id='login-btn'>Log in</a>
-              </li>
-              <li className='nav-item active'>
-                <a type='button' className='btn mt-1 landing-btn' id='registro' href='#'>Registro</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <NavigationBar/>
         {/* Main Image */}
         <section className='image-container'>
           <div className='d-flex flex-column align-items-center'>
@@ -100,16 +81,7 @@ const LandingPage = () => {
           </div>
         </div>
         {/* Footer */}
-        <footer className='footer-container'>
-          <div className=' logo-container d-flex justify-content-center'>
-            <img className='logo mt-3 mb-1' src={Mallete} />
-          </div>
-          <hr />
-          <div className='links-container d-flex justify-content-around'>
-            <p className='mt-3'> © 2021 Mallete</p>
-            <a className='link mt-3 link-footer' href='#'>Terminos y condiciones</a>
-          </div>
-        </footer>
+        <FooterLanding />
       </div>
     </>
   )

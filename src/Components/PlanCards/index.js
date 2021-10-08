@@ -4,9 +4,10 @@ import './style.scss'
 import moment from 'moment'
 import axios from 'axios'
 import {
-  Card, Button, CardTitle, CardText, CardDeck,
+  Card, CardTitle, CardText, CardDeck,
   CardSubtitle, CardBody
 } from 'reactstrap'
+import  Button  from '../../Components/Button'
 
 const { REACT_APP_API_ENDPOINT } = process.env
 
@@ -40,7 +41,11 @@ function PlanCards () {
                 la plataforma
               </p>
             </CardText>
+            {/* 
             <Button id='elegir' className='btn-elegir'>Elegir</Button>
+            */}
+            
+            <Button text="Elegir" template="btn btn-primary" handler="" />
           </CardBody>
         </Card>
         <Card className='card-plan'>
