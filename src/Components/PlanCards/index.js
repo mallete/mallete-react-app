@@ -1,15 +1,23 @@
 import React from 'react'
 import { PayPalButton } from 'react-paypal-button-v2'
 import './style.scss'
+import moment from 'moment'
+import axios from 'axios'
 import {
   Card, Button, CardTitle, CardText, CardDeck,
   CardSubtitle, CardBody
 } from 'reactstrap'
 
+const { REACT_APP_API_ENDPOINT } = process.env
+
+
 function PlanCards () {
+  const authenticationToken = localStorage.getItem('authenticationToken')
+  const userId = localStorage.getItem('userId')
+  const updateUseUrl= `${REACT_APP_API_ENDPOINT}/users/${userId}`
   return (
     <div className='container'>
-      <CardDeck>
+      <CardDeck className="mt-5">
         <Card className='card-plan'>
           <CardBody>
             <CardTitle tag='h1' className='plan text-center mb-3'>
@@ -70,12 +78,21 @@ function PlanCards () {
                   'Transaction completed by ' + details.payer.name.given_name
                 )
                 // OPTIONAL: Call your server to save the transaction
-                { /*  return fetch('', {
-                  method: 'post',
-                  body: JSON.stringify({
-                    orderID: data.orderID
-                  })
-                }) */ }
+                return axios({
+                  url: updateUseUrl,
+                  method: "patch",
+                  headers: {
+                    authorization: authenticationToken,
+                  },
+                  data:{
+                    plan: "professional",
+                    vigencyDate: moment().add(1,'M'),
+                    paymentDay: moment(),
+                    $push:{
+                      paymentHistory:[data]
+                    }
+                  }
+                })
               }}
               options={{
                 currency: 'MXN',
@@ -126,12 +143,21 @@ function PlanCards () {
                   'Transaction completed by ' + details.payer.name.given_name
                 )
                 // OPTIONAL: Call your server to save the transaction
-                { /*  return fetch('', {
-                  method: 'post',
-                  body: JSON.stringify({
-                    orderID: data.orderID
-                  })
-                }) */ }
+                return axios({
+                  url: updateUseUrl,
+                  method: "patch",
+                  headers: {
+                    authorization: authenticationToken,
+                  },
+                  data:{
+                    plan: "professionalplus",
+                    vigencyDate: moment().add(1,'M'),
+                    paymentDay: moment(),
+                    $push:{
+                      paymentHistory:[{data,details}]
+                    }
+                  }
+                })
               }}
               options={{
                 currency: 'MXN',
