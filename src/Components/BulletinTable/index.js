@@ -4,7 +4,7 @@ import { Table } from 'reactstrap'
 
 function BulletinTable (props) {
   return (
-    <div className='container'>
+    <div className=' container table-responsive-sm'>
       <Table striped>
         <thead className='tab-header'>
           <tr className='text-center'>
