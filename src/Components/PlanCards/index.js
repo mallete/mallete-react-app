@@ -2,9 +2,10 @@ import React from 'react'
 import { PayPalButton } from 'react-paypal-button-v2'
 import './style.scss'
 import {
-  Card, Button, CardTitle, CardText, CardDeck,
+  Card, CardTitle, CardText, CardDeck,
   CardSubtitle, CardBody
 } from 'reactstrap'
+import  Button  from '../../Components/Button'
 
 function PlanCards () {
   return (
@@ -32,7 +33,11 @@ function PlanCards () {
                 la plataforma
               </p>
             </CardText>
+            {/* 
             <Button id='elegir' className='btn-elegir'>Elegir</Button>
+            */}
+            
+            <Button text="Elegir" template="btn btn-primary" handler="" />
           </CardBody>
         </Card>
         <Card className='card-plan'>
