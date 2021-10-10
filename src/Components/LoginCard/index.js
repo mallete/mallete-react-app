@@ -57,7 +57,7 @@ function LoginCard () {
                 <input name="password"  type="password" textLabel="Contraseña" textInput="Contraseña"  onChange={inputHandler} />
                 */}
 
-        <InputGeneric name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
+        <InputGeneric className="input-generic" name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
         <InputGeneric name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
 
         <div className='button-container'>
