@@ -36,7 +36,7 @@ function PlanCards () {
                 <span class='material-icons'>timelapse</span>Sin tiempo de
                 expiración
               </p>
-              <p className='features'>
+              <p className='features first-card-icon'>
                 <span class='material-icons'>timer</span>Actualización diaria en
                 la plataforma
               </p>
@@ -45,7 +45,7 @@ function PlanCards () {
             <Button id='elegir' className='btn-elegir'>Elegir</Button>
             */}
             
-            <Button text="Elegir" template="btn btn-primary" handler="" />
+            <Button text="Elegir" template="btn-elegir" handler="" />
           </CardBody>
         </Card>
         <Card className='card-plan'>
