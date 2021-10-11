@@ -10,6 +10,7 @@ import Home from './Pages/Home'
 import Login from './Pages/Login'
 import Main from './Pages/Main'
 import Search from './Pages/Search'
+import Pricing from './Pages/Pricing'
 import CreateAccount from './Pages/CreateAccount'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
@@ -39,6 +40,9 @@ function App () {
               <li>
                 <Link to='/registro'>Create account</Link>
               </li>
+              <li>
+                <Link to='/pricing'>Pricing</Link>
+              </li>
             </ul>
           </nav>
 
@@ -59,6 +63,9 @@ function App () {
             </Route>
             <Route path='/registro'>
               <CreateAccount />
+            </Route>
+            <Route path='/pricing'>
+              <Pricing />
             </Route>
           </Switch>
         </div>
