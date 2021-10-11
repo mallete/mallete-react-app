@@ -57,7 +57,7 @@ function BulletinTable (event) {
               return (
                 <tr key={index}>
                   <td data-column-name="record" data-column-name-data={record}>
-                      <Link to={`/trial-detail/${activeTrial._id}`}>
+                      <Link to={`/trial-detail/${activeTrial._id}`} activeTrial={activeTrial}>
                         {record}
                       </Link>
                   </td>

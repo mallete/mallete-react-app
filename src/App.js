@@ -12,6 +12,7 @@ import Main from './Pages/Main'
 import Search from './Pages/Search'
 import Pricing from './Pages/Pricing'
 import CreateAccount from './Pages/CreateAccount'
+import TrialDetail from './Pages/TrialDetail'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -73,6 +74,9 @@ function App () {
             </Route>
             <Route path='/pricing'>
               <Pricing />
+            </Route>
+            <Route path='/trial-detail/:id'>
+              <TrialDetail />
             </Route>
           </Switch>
         </div>
