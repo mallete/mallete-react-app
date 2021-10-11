@@ -34,7 +34,7 @@ function App () {
                 <Link to='/login'>Login</Link>
               </li>
               <li>
-                <Link to='/main'>Main</Link>
+                <Link to='/dashboard'>Dasboard</Link>
               </li>
               <li>
                 <Link to='/búsqueda'>Search</Link>
@@ -57,7 +57,7 @@ function App () {
             <Route path='/login'>
               <Login />
             </Route>
-            <Route path='/main'>
+            <Route path='/dashboard'>
               <Main />
             </Route>
             <Route path='/búsqueda'>
