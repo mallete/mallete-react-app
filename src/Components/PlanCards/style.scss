@@ -2,6 +2,7 @@
 
 .card-plan{
     border: solid 2px $guinda;
+   
     .plan{
         font-size: 40px;
         color: $tiro;
@@ -10,9 +11,21 @@
     .price{
         color: $rose;
     }
-    .features{
-        color: $dark-sky;
+    .feature-list{
+        list-style: none;
+        padding-left: 0px;
+
+        .features{
+            display: flex;
+            padding: .5rem 0px;
+            color: $dark-sky;
+            &> span{
+                margin-right: .5rem;
+            }
+        }
+
     }
+    
     
 }
 .first-card-icon{
@@ -71,10 +84,11 @@
         padding: 0%;
     }
 }
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 992px){
     .card-plan{
         &.card{
             height: 70vh;
+            height: 100%;
         }
     }
     

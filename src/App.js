@@ -19,6 +19,8 @@ import 'react-toastify/dist/ReactToastify.css'
 function App () {
   const queryClient = new QueryClient()
   // const {authToken, setauthToken} = useState()
+  const authToken =localStorage.getItem('authenticationToken')
+  const userId= localStorage.getItem('userId')
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -59,7 +61,12 @@ function App () {
               <Main />
             </Route>
             <Route path='/búsqueda'>
-              <Search />
+              {
+                authToken ?
+                <Search />
+                :
+                <Login />
+              }
             </Route>
             <Route path='/registro'>
               <CreateAccount />
