@@ -31,7 +31,7 @@ const NavigationBar = () =>{
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar className="ml-auto">
             <NavItem>
-              <NavLink className="links-landing mr-5" href="/components/">Planes</NavLink>
+              <NavLink className="links-landing mr-5" href="/planes/">Planes</NavLink>
             </NavItem>
             <NavItem className="mr-2">
                 <Button className="" text="Log in" template="btn-landing btn-login mr-4" handler={inputHandlerLogin}/>

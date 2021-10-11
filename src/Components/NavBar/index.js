@@ -26,7 +26,7 @@ function NavBar (props) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='ml-auto' navbar>
             <NavItem>
-              <NavLink className='ref link-navbar-logged' href='/juicios/'>Juicios</NavLink>
+              <NavLink className='ref link-navbar-logged' href='/búsqueda'>Juicios</NavLink>
             </NavItem>
             <NavItem>
               <NavLink className='ref link-navbar-logged' href='/notificaciones/'>Notificaciones</NavLink>

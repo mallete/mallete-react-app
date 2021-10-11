@@ -25,7 +25,9 @@ function App () {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
+        
         <div>
+        {/*
           <nav>
             <ul>
               <li>
@@ -44,10 +46,11 @@ function App () {
                 <Link to='/registro'>Create account</Link>
               </li>
               <li>
-                <Link to='/pricing'>Pricing</Link>
+                <Link to='/planes'>Pricing</Link>
               </li>
             </ul>
           </nav>
+        */}
 
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
@@ -58,8 +61,16 @@ function App () {
             <Route path='/login'>
               <Login />
             </Route>
+            <Route path='/registro'>
+              <CreateAccount />
+            </Route>
             <Route path='/dashboard'>
-              <Main />
+              {
+                authToken ?
+                <Main />
+                :
+                <Login />
+              }
             </Route>
             <Route path='/búsqueda'>
               {
@@ -69,10 +80,7 @@ function App () {
                 <Login />
               }
             </Route>
-            <Route path='/registro'>
-              <CreateAccount />
-            </Route>
-            <Route path='/pricing'>
+            <Route path='/planes'>
               <Pricing />
             </Route>
             <Route path='/trial-detail/:id'>
