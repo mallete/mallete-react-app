@@ -20,8 +20,6 @@ function PlanCards() {
   return (
     <div className='container mt-5'>
       <div className="row align-items-stretch">
-
-
         <div className="col-md-12 col-lg-4">
           <Card className='card-plan mb-3'>
             <CardBody>
@@ -37,28 +35,22 @@ function PlanCards() {
                     <span class='material-icons'>folder_open</span>5 expedientes
                     personalizados
                   </li>
-                  <li  className='features'>
+                  <li className='features'>
                     <span class='material-icons'>timelapse</span>Sin tiempo de
                     expiración
                   </li>
-                  <li  className='features'>
+                  <li className='features'>
                     <span class='material-icons'>timer</span>Actualización diaria en
                     la plataforma
                   </li>
                 </ul>
                 <div className=" first-card-icon"></div>
-
               </CardText>
-              {/* 
-            <Button id='elegir' className='btn-elegir'>Elegir</Button>
-            */}
-
               <Button text="Elegir" template="btn-elegir" handler="" />
             </CardBody>
           </Card>
         </div>
         <div className="col-md-12 col-lg-4">
-
           <Card className='card-plan mb-3'>
             <CardBody>
               <CardTitle tag='h1' className='plan text-center mb-3'>
@@ -68,22 +60,25 @@ function PlanCards() {
                 MXN 300.00 / mes*
               </CardSubtitle>
               <CardText>
-                <p className='features'>
-                  <span class='material-icons'>folder_open</span>20 expedientes
-                  personalizados
-                </p>
-                <p className='features'>
-                  <span class='material-icons'>timelapse</span>Sin tiempo de
-                  expiración
-                </p>
-                <p className='features'>
-                  <span class='material-icons'>timer</span>Actualización diaria en
-                  la plataforma
-                </p>
-                <p id='last-icon' className='features'>
-                  <span class='material-icons'>insert_invitation</span>Tareas
-                  personalizadas a los boletines
-                </p>
+                  <ul className="feature-list">
+                    <li className='features'>
+                      <span class='material-icons'>folder_open</span>5 expedientes
+                      personalizados
+                    </li>
+                    <li className='features'>
+                      <span class='material-icons'>timelapse</span>Sin tiempo de
+                      expiración
+                    </li>
+                    <li className='features'>
+                      <span class='material-icons'>timer</span>Actualización diaria en
+                      la plataforma
+                    </li>
+                    <li className='features'>
+                    <span class="material-icons">event_note</span>Tareas
+                      personalizadas a los boletines
+                      </li>
+                  </ul>
+                  <div className="second-card-icon"></div>
               </CardText>
               <PayPalButton
                 onButtonReady={() => {
@@ -134,26 +129,28 @@ function PlanCards() {
                 MXN 600.00 / mes*
               </CardSubtitle>
               <CardText>
-                <p className='features'>
-                  <span class='material-icons'>folder_open</span>50 expedientes
-                  personalizados
-                </p>
-                <p className='features'>
-                  <span class='material-icons'>timelapse</span>Sin tiempo de
-                  expiración
-                </p>
-                <p className='features'>
-                  <span class='material-icons'>timer</span>Actualización diaria en
-                  la plataforma
-                </p>
-                <p className='features'>
-                  <span class='material-icons'>insert_invitation</span>Tareas
-                  personalizadas a los boletines
-                </p>
-                <p className='features'>
-                  <span class='material-icons'>perm_phone_msg</span>Soporte
-                  personalizado
-                </p>
+                <ul className="feature-list">
+                      <li className='features'>
+                        <span class='material-icons'>folder_open</span>5 expedientes
+                        personalizados
+                      </li>
+                      <li className='features'>
+                        <span class='material-icons'>timelapse</span>Sin tiempo de
+                        expiración
+                      </li>
+                      <li className='features'>
+                        <span class='material-icons'>timer</span>Actualización diaria en
+                        la plataforma
+                      </li>
+                      <li className='features'>
+                        <span class='material-icons'>event_note</span>Tareas
+                        personalizadas a los boletines
+                      </li>
+                      <li className='features'>
+                        <span class='material-icons'>perm_phone_msg</span>Soporte
+                        personalizado
+                      </li>
+                  </ul>  
               </CardText>
               {paypalLoaded
                 ? (

@@ -29,16 +29,21 @@
     
 }
 .first-card-icon{
-    margin-bottom: 8rem;
+    margin-bottom: 7rem;
+}
+.second-card-icon{
+    margin-bottom: 3.5rem;
 }
 
 .btn-elegir{
     background-color: $guinda;
     color: $plastik;
-    height: 35px;
+    height: 38px;
     width: 205px;
     margin-left: 2.5rem;
     padding: 0%;
+    border: solid 2px;
+    border-radius: 5px;
     &:hover{
         background-color: $ghost;
         color: $guinda;
@@ -49,12 +54,6 @@
 }
 #elegir{
     margin-top: 2rem;
-}
-#elegir2{
-    margin-top: 2rem;
-}
-#elegir3{
-    margin-top: 1rem;
 }
 
 /*
@@ -78,7 +77,7 @@
     .btn-elegir{
         background-color: $guinda;
         color: $plastik;
-        height: 35px;
+        height: 38px;
         width: 170px;
         margin-left: 0;
         padding: 0%;
@@ -91,16 +90,20 @@
             height: 100%;
         }
     }
-    
     .plan{
         font-size: 40PX;
     }
     .btn-elegir{
         background-color: $guinda;
         color: $plastik;
-        height: 35px;
-        width: 205px;
-        margin-left: 2.5rem;
+        height: 38px;
+        width: 210px;
+        margin-left: 1.5rem;
         padding: 0%;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .btn-elegir{
+        margin-left: 2.7rem;
     }
 }
