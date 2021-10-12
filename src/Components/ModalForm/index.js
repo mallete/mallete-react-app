@@ -1,13 +1,12 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import './style.scss'
 
 const ModalForm = (props) => {
     const {inputHandler,formData} = props
     const {title, content } = formData
     return (
-        <>
-            
+        <> 
             <Form>
                 <FormGroup >
                     <Label for="exampleUrl">Titulo</Label>
@@ -38,7 +37,7 @@ const ModalForm = (props) => {
                     <Input
                         className="modal-input"
                         type="date"
-                        name="date"
+                        name="limitDate"
                         id="exampleDate"
                         placeholder="date placeholder"
                         onChange={inputHandler}
@@ -49,14 +48,13 @@ const ModalForm = (props) => {
                     <Input
                         className="modal-input"
                         type="email"
-                        name="email"
+                        name="assignee"
                         id="exampleEmail"
                         placeholder="@email"
                         onChange={inputHandler}
                     />
                 </FormGroup>
             </Form>
-        
         </>
     )
 }

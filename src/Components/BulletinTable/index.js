@@ -9,31 +9,16 @@ import ModalForm from '../ModalForm'
 
 const { REACT_APP_API_ENDPOINT } = process.env
 
-function BulletinTable (event) {
+function BulletinTable (props) {
+  const {trials} = props
   const authToken =localStorage.getItem('authenticationToken')
   const userId= localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
-  
   useEffect (async() => {
-    const responseData = await axios({
-        url: '/active-trials',
-        baseURL: REACT_APP_API_ENDPOINT,
-        method: "get",
-        headers: {'authorization': authToken},
-        params:{
-          user: userId
-        }
-      })
-    if( responseData.data && 
-        responseData.data.data &&
-        responseData.data.data &&
-        responseData.data.data.activeTrials.length > 0 
-        ){
-          setTrialList(responseData.data.data.activeTrials)
-    }  
+    console.log(trials)
+    setTrialList(trials)
   }, [])
-  useEffect (async() => {
-  }, [trialList])
+  
   return (
     <div className=" container mt-5">
       <Table className="table-responsive-sm" striped>
@@ -49,6 +34,7 @@ function BulletinTable (event) {
         </thead>
         <tbody>
           {
+            trialList&&
             trialList.map((activeTrial, index) => {
               const { record, plaintiff,defendant, bulletins, _id } = activeTrial.trial;
               console.log(activeTrial._id)
@@ -76,6 +62,8 @@ function BulletinTable (event) {
                             notifications_active
                           </span>)
                         }
+                        trial={_id}
+                        record={record}
                         modalBody={(
                           <ModalForm/>
                         )}
