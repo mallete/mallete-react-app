@@ -14,7 +14,17 @@ td{
 }
 .active-notification{ 
     color:$red;
+    margin-left: 2.5rem;
+}
+.active-notification-task{
+    color: $red;
+    margin-left: 1rem;
 }
 .unactive-notification{
     color: $valspar;
+    margin-left: 2.5rem;
+}
+.unactive-notification-task{
+    color: $valspar;
+    margin-left: 1rem;
 }

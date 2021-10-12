@@ -15,9 +15,9 @@ main {
   margin-bottom: 3rem;
 }
 
-#register-form {
+#login-form {
   width: 652px;
-  height: 892px;
+  height: 580px;
   padding-left: 4rem;
   padding-right: 4rem;
   display: -webkit-box;

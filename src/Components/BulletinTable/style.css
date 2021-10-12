@@ -2,28 +2,40 @@ main {
   padding: 16px;
 }
 
-.header {
+.tab-header {
   color: #FCFDFD;
   background-color: #860E56;
 }
 
-table {
-  color: #2A2b2c;
-}
-
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #f8f3f9;
+  background-color: #fdf8ff;
 }
 
 td {
   color: #2A2b2c;
 }
 
-.material-icons {
-  color: #BF0000;
+.notification-column {
+  width: 5px;
 }
 
-.material-icons-sharp {
+.active-notification {
+  color: #BF0000;
+  margin-left: 2.5rem;
+}
+
+.active-notification-task {
+  color: #BF0000;
+  margin-left: 1rem;
+}
+
+.unactive-notification {
   color: #ABB6BA;
+  margin-left: 2.5rem;
+}
+
+.unactive-notification-task {
+  color: #ABB6BA;
+  margin-left: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

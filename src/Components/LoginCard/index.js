@@ -41,7 +41,7 @@ function LoginCard () {
           draggable: true,
           progress: undefined
         })
-      history.push('/')
+      history.push('/dashboard')
       console.log(loggedUser.data)
     }
     console.log(loggedUser)

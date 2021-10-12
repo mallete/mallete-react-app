@@ -1,0 +1,14 @@
+main {
+  padding: 16px;
+}
+
+.modal-input {
+  width: 450px;
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-input {
+    width: 330px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,8 @@
-nav {
+main {
+  padding: 16px;
+}
+
+.landing {
   background-color: #4E213C;
 }
 
@@ -7,19 +11,15 @@ nav {
           filter: brightness(0) invert(1);
 }
 
-.nav-link {
+.links-landing {
   color: #FCFDFD !important;
   margin-left: 1rem;
+  font-weight: bold;
+  font-size: 1.125rem;
 }
 
-.nav-link:hover {
+.links-landing:hover {
   text-decoration: underline;
-}
-
-.btn {
-  width: 100px;
-  height: 30px;
-  padding: 0;
 }
 
 #registro {
@@ -35,7 +35,10 @@ nav {
   color: #FCFDFD;
 }
 
-#login {
+#login-btn {
+  width: 100px;
+  height: 30px;
+  padding: 0%;
   margin-left: 1rem;
 }
 
@@ -63,6 +66,7 @@ nav {
   width: 150px;
   font-size: 23px;
   font-weight: bold;
+  border-radius: 6px;
   -webkit-box-shadow: 2px 2px #ABB6BA;
           box-shadow: 2px 2px #ABB6BA;
 }
@@ -78,9 +82,18 @@ nav {
   text-shadow: #ABB6BA 0.1em 0.1em 0.2em;
 }
 
-.card {
+.card-landing {
   border: none;
   color: #2A2b2c;
+}
+
+.card-landing .color-title {
+  font-weight: bold;
+  color: #4E213C;
+}
+
+.epic-phrase {
+  color: #860E56;
 }
 
 #signature {
@@ -89,16 +102,6 @@ nav {
   height: 18rem;
   width: 28rem;
   border: none;
-}
-
-.link {
-  color: #FCFDFD;
-  text-decoration: none;
-}
-
-.link:hover {
-  color: #FCFDFD;
-  text-decoration: underline;
 }
 
 .footer-container {
@@ -113,6 +116,16 @@ nav {
 
 hr {
   background-color: #FCFDFD;
+}
+
+.link-footer {
+  color: #FCFDFD;
+  text-decoration: none;
+}
+
+.link-footer:hover {
+  color: #FCFDFD;
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 576px) {

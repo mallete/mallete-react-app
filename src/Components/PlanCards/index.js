@@ -8,6 +8,9 @@ import {
   CardSubtitle, CardBody
 } from 'reactstrap'
 import Button from '../../Components/Button'
+import { useHistory } from "react-router-dom"
+import { Flip, toast } from 'react-toastify'
+
 
 const { REACT_APP_API_ENDPOINT } = process.env
 
@@ -17,6 +20,10 @@ function PlanCards() {
   const authenticationToken = localStorage.getItem('authenticationToken')
   const userId = localStorage.getItem('userId')
   const updateUseUrl = `${REACT_APP_API_ENDPOINT}/users/${userId}`
+  const history = useHistory()
+    const inputHandlerDashboard = (event) =>{
+      history.push('/dashboard')
+    }
   return (
     <div className='container mt-5'>
       <div className="row align-items-stretch">
@@ -46,7 +53,7 @@ function PlanCards() {
                 </ul>
                 <div className=" first-card-icon"></div>
               </CardText>
-              <Button text="Elegir" template="btn-elegir" handler="" />
+              <Button text="Probar" template="btn-elegir" handler={inputHandlerDashboard} />
             </CardBody>
           </Card>
         </div>
@@ -88,6 +95,18 @@ function PlanCards() {
                 currency='MXN'
                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                 onSuccess={(details, data) => {
+                  toast.success('Pago realizado con éxito',
+                    {
+                      position: 'top-right',
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                        draggable: true,
+                      progress: undefined,
+                      transition: Flip
+                    })
+                  history.push('/dashboard')
                   console.log(
                     'Transaction completed by ' + details.payer.name.given_name
                   )
@@ -159,6 +178,18 @@ function PlanCards() {
                     currency='MXN'
                     // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                     onSuccess={(details, data) => {
+                      toast.success('Pago realizado con éxito',
+                    {
+                      position: 'top-right',
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                        draggable: true,
+                      progress: undefined,
+                      transition: Flip
+                    })
+                  history.push('/dashboard')
                       console.log(
                         'Transaction completed by ' + details.payer.name.given_name
                       )

@@ -1,7 +1,8 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import './style.scss'
 
 const GenericModal = (props) => {
     const {
@@ -21,15 +22,15 @@ const GenericModal = (props) => {
                 {actionButton}
             </div>
             <Modal isOpen={modal} toggle={toggle} className={className}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalHeader toggle={toggle}>Añadir notificación</ModalHeader>
                 <ModalBody>
                     {
                         modalBody
                     }
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                    <Button className="btn-modal-save" onClick={toggle}>Guardar</Button>{' '}
+                    <Button className="btn-modal-cancel" onClick={toggle}>Cancel</Button>
                 </ModalFooter>
             </Modal>
         </div>
