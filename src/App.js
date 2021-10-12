@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,8 +20,13 @@ import 'react-toastify/dist/ReactToastify.css'
 function App () {
   const queryClient = new QueryClient()
   // const {authToken, setauthToken} = useState()
-  const authToken =localStorage.getItem('authenticationToken')
   const userId= localStorage.getItem('userId')
+  const [islogged, setIsLogged]=useState(false)
+  useEffect(()=>{
+    const logged = localStorage.getItem('authenticationToken')
+    console.log("este es el token:" + logged)
+    logged && setIsLogged(true)
+  },[])
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -55,30 +60,28 @@ function App () {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
+            
+              <Route exact path='/' >
+                <Home />
+              </Route>
+              <Route path='/dashboard'>
+                <Main />
+              </Route>
+            
             <Route path='/login'>
               <Login />
             </Route>
             <Route path='/registro'>
               <CreateAccount />
             </Route>
-            <Route path='/dashboard'>
-              {
-                authToken ?
-                <Main />
-                :
-                <Login />
-              }
-            </Route>
+            
             <Route path='/búsqueda'>
-              {
+              {/*
                 authToken ?
                 <Search />
                 :
                 <Login />
-              }
+              */}
             </Route>
             <Route path='/planes'>
               <Pricing />

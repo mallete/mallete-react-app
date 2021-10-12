@@ -1,12 +1,19 @@
 import Footer from '../../Components/Footer'
 import NavBar from '../../Components/NavBar'
 import BulletinTable from '../../Components/BulletinTable'
+import { useHistory } from 'react-router-dom'
 import SearchComponent from '../../Components/SearchComponent'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
 function Main () {
+  const history = useHistory()
+  const logged = localStorage.getItem('authenticationToken')
+  console.log(logged)
+  if(logged === "" || logged == null){
+      history.push("/")
+  }
   const authToken =localStorage.getItem('authenticationToken')
   const userId= localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
