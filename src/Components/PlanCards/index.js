@@ -8,7 +8,7 @@ import {
   CardSubtitle, CardBody
 } from 'reactstrap'
 import Button from '../../Components/Button'
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { Flip, toast } from 'react-toastify'
 
 
@@ -53,7 +53,13 @@ function PlanCards() {
                 </ul>
                 <div className=" first-card-icon"></div>
               </CardText>
-              <Button text="Probar" template="btn-elegir" handler={inputHandlerDashboard} />
+              {
+                authenticationToken 
+                ? 
+                <Button text="Probar" template="btn-elegir" handler={inputHandlerDashboard} />
+                : <Link to="/registro" className="button-link">Regístrate</Link>
+              }
+              
             </CardBody>
           </Card>
         </div>
@@ -87,7 +93,10 @@ function PlanCards() {
                   </ul>
                   <div className="second-card-icon"></div>
               </CardText>
-              <PayPalButton
+              {
+                authenticationToken
+                ?
+                <PayPalButton
                 onButtonReady={() => {
                   setPaypalLoaded(true);
                 }}
@@ -134,7 +143,10 @@ function PlanCards() {
                 style={{
                   color: 'silver'
                 }}
-              />
+                />
+                :<Link to="/registro" className="button-link">Regístrate</Link>
+              }
+              
             </CardBody>
           </Card>
         </div>
@@ -171,55 +183,62 @@ function PlanCards() {
                       </li>
                   </ul>  
               </CardText>
-              {paypalLoaded
-                ? (
-                  <PayPalButton
-                    amount='600.00'
-                    currency='MXN'
-                    // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                    onSuccess={(details, data) => {
-                      toast.success('Pago realizado con éxito',
-                    {
-                      position: 'top-right',
-                      autoClose: 5000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                        draggable: true,
-                      progress: undefined,
-                      transition: Flip
-                    })
-                  history.push('/dashboard')
-                      console.log(
-                        'Transaction completed by ' + details.payer.name.given_name
-                      )
-                      // OPTIONAL: Call your server to save the transaction
-                      return axios({
-                        url: updateUseUrl,
-                        method: "patch",
-                        headers: {
-                          authorization: authenticationToken,
-                        },
-                        data: {
-                          plan: "professionalplus",
-                          vigencyDate: moment().add(1, 'M'),
-                          paymentDay: moment(),
-                          $push: {
-                            paymentHistory: [{ data, details }]
-                          }
-                        }
+              {
+                authenticationToken ?
+                ( paypalLoaded
+                  ? (
+                    <PayPalButton
+                      amount='600.00'
+                      currency='MXN'
+                      // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                      onSuccess={(details, data) => {
+                        toast.success('Pago realizado con éxito',
+                      {
+                        position: 'top-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                          draggable: true,
+                        progress: undefined,
+                        transition: Flip
                       })
-                    }}
-                    options={{
-                      currency: 'MXN',
-                      clientId: 'AfFjpdV6k4-_J-7qt6WZvDWY1XkjWHVdVxivFrrW-ywA-jQ8RGph0MLby6noK69YWFDtBOF-VdOkE_v9'
-                    }}
-                    style={{
-                      color: 'silver'
-                    }}
-                  />
-                )
-                : null}
+                    history.push('/dashboard')
+                        console.log(
+                          'Transaction completed by ' + details.payer.name.given_name
+                        )
+                        // OPTIONAL: Call your server to save the transaction
+                        return axios({
+                          url: updateUseUrl,
+                          method: "patch",
+                          headers: {
+                            authorization: authenticationToken,
+                          },
+                          data: {
+                            plan: "professionalplus",
+                            vigencyDate: moment().add(1, 'M'),
+                            paymentDay: moment(),
+                            $push: {
+                              paymentHistory: [{ data, details }]
+                            }
+                          }
+                        })
+                      }}
+                      options={{
+                        currency: 'MXN',
+                        clientId: 'AfFjpdV6k4-_J-7qt6WZvDWY1XkjWHVdVxivFrrW-ywA-jQ8RGph0MLby6noK69YWFDtBOF-VdOkE_v9'
+                      }}
+                      style={{
+                        color: 'silver'
+                      }}
+                    />
+                  )
+                  : null
+                  )
+                :<Link to="/registro" className="button-link">Regístrate</Link>
+
+              }
+              
             </CardBody>
           </Card>
         </div>
