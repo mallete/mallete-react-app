@@ -11,7 +11,9 @@ function LoginCard () {
   // miguelm@email.com
   // miguel
   const history = useHistory()
-  const [formData, setFormData] = useState({ email: '', password: '' })
+  const [formData, setFormData] = useState({ email: undefined, password: undefined })
+  const [isEmailValid, setIsEmailValid] = useState(false)
+  const [isPasswordValid, setIsPasswordValid] = useState(false)
   const loggedUser = HookFetchRequest({
     axiosMethod: 'POST',
     pathUrl: '/auth/login'
@@ -47,6 +49,14 @@ function LoginCard () {
     console.log(loggedUser)
   }, [loggedUser.isSuccess, loggedUser.data])
 
+  useEffect(() => {
+    setIsEmailValid((formData.email === ""))
+  }, [formData])
+
+  useEffect(() => {
+    setIsPasswordValid((formData.password === ""))
+  }, [formData])
+
   return (
     <div className='container'>
       <div className='row row-cols-1' id='login-form'>
@@ -57,8 +67,8 @@ function LoginCard () {
                 <input name="password"  type="password" textLabel="Contraseña" textInput="Contraseña"  onChange={inputHandler} />
                 */}
 
-        <InputGeneric className="input-generic" name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
-        <InputGeneric name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
+        <InputGeneric invalidValor={isEmailValid}  name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
+        <InputGeneric invalidValor={isPasswordValid}  name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
 
         <div className='button-container'>
           <Button text='Iniciar Sesion' template='btn btn-primary m-3' handler={sendData} />
