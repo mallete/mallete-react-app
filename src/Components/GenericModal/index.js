@@ -13,6 +13,7 @@ const GenericModal = (props) => {
     const updateUseUrl = `${REACT_APP_API_ENDPOINT}/tasks`
     const authenticationToken = localStorage.getItem('authenticationToken')
     const {
+        
         actionButton,
         actionButtonClasses,
         className,
@@ -93,8 +94,10 @@ const GenericModal = (props) => {
         //
         //si encuentra la tarea, set en true taskAlreadyExist
         //acutalizar formData para que el form popule la data
+
         setFormData({ title:"este es un title", content:"un content" })
     }, [])
+
     const inputHandler = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
         console.log(formData)
