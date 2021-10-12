@@ -73,7 +73,7 @@ function LoginCard () {
         <div className='button-container'>
           <Button text='Iniciar Sesion' template='btn btn-primary m-3' handler={sendData} />
         </div>
-
+        <b className='text-center'>Si aún no tienes una cuenta registrate <a href='/registro'>aquí</a></b>
       </div>
     </div>
 
