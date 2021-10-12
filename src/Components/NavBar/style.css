@@ -2,7 +2,7 @@ main {
   padding: 16px;
 }
 
-.navbar {
+.navbar-logged {
   background-color: #F7F8F8;
 }
 
@@ -11,11 +11,11 @@ main {
           filter: brightness(0) invert(1);
 }
 
-.link {
+.link-perfil {
   color: #2A2b2c;
 }
 
-.link:hover {
+.link-perfil:hover {
   font-weight: bold;
   color: #860E56;
   text-decoration: none;
@@ -29,11 +29,11 @@ main {
   margin-right: none;
 }
 
-.ref {
+.link-navbar-logged {
   color: #2A2b2c;
 }
 
-.ref:hover {
+.link-navbar-logged:hover {
   font-weight: bold;
   color: #860E56;
 }

@@ -1,0 +1,28 @@
+main {
+  padding: 16px;
+}
+
+.btn-modal-save {
+  background-color: #860E56;
+  height: 35px;
+  width: 180px;
+  border-radius: 3px;
+  padding: 0;
+  min-width: 0;
+}
+
+.btn-modal-save:hover {
+  color: #860E56;
+  background-color: #FCFDFD;
+}
+
+.btn-modal-cancel {
+  color: #640A40;
+  background-color: #DDE2E3;
+  height: 35px;
+  width: 180px;
+  border-radius: 3px;
+  padding: 0;
+  min-width: 0;
+}
+/*# sourceMappingURL=style.css.map */

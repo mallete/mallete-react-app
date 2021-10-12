@@ -2,28 +2,73 @@ main {
   padding: 16px;
 }
 
-.btn-registro {
-  background-color: #F9264D;
-  color: #EAEBEB;
-  height: 40px;
-  width: 150px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
+/*.btn-registro{
+background-color: $carmesi;
+color: $riolita;
+height: 40px;
+width: 150px;
+text-align: center;
+font-size: 16px;
+font-weight: bold;
+border: none;
+border-radius: 4px;
 }
 
-.btn-login {
-  background-color: #4E213C;
-  color: #FCFDFD;
-  height: 40px;
-  width: 150px;
-  text-align: center;
-  font-size: 16px;
+.btn-login{
+background-color: $royal-wine;
+color: $plastik;
+height: 40px;
+width: 150px;
+text-align: center;
+font-size: 16px;
+font-weight: bold;
+border-color: $plastik;
+border-radius: 4px;
+border: 2px;
+}*/
+.btn {
+  padding: .875rem;
+  min-width: 14rem;
+  border-radius: .125rem;
   font-weight: bold;
+  font-size: 1.125rem;
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(44, 0, 26, 0.25);
+          box-shadow: 0px 4px 4px 0px rgba(44, 0, 26, 0.25);
+}
+
+.btn.btn-primary {
+  background-color: #4E213C;
   border-color: #FCFDFD;
+}
+
+.btn-landing {
+  padding: 0%;
   border-radius: 4px;
-  border: 2px;
+  font-weight: bold;
+  font-size: 1.125rem;
+  -webkit-box-shadow: #FCFDFD;
+          box-shadow: #FCFDFD;
+  color: #FCFDFD;
+  height: 38px;
+  width: 138px;
+}
+
+.btn-landing.btn-login {
+  background-color: #4E213C;
+  border-color: #FCFDFD;
+}
+
+.btn-landing.btn-login:hover {
+  background-color: #FCFDFD;
+  color: #2A2b2c;
+}
+
+.btn-landing.btn-registro {
+  background-color: #F9264D;
+}
+
+.btn-landing.btn-registro:hover {
+  color: #2A2b2c;
+  border-color: #FCFDFD;
 }
 /*# sourceMappingURL=style.css.map */

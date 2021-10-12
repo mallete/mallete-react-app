@@ -5,6 +5,8 @@ import axios from 'axios'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import GenericModal from "../GenericModal"
+import ModalForm from '../ModalForm'
+
 const { REACT_APP_API_ENDPOINT } = process.env
 
 function BulletinTable (event) {
@@ -33,8 +35,8 @@ function BulletinTable (event) {
   useEffect (async() => {
   }, [trialList])
   return (
-    <div className=" container table-responsive-sm">
-      <Table striped>
+    <div className=" container mt-5">
+      <Table className="table-responsive-sm" striped>
         <thead className="tab-header">
           <tr className="text-center">
             <th>Número de expediente</th>
@@ -63,18 +65,20 @@ function BulletinTable (event) {
                   </td>
                   <td data-column-name="plantiff" data-column-name-data={plaintiff}>{plaintiff}</td>
                   <td data-column-name="defendant" data-column-name-data={defendant}>{defendant}</td>
-                  <td data-column-name="lastUpdateDate" data-column-name-data={lastBulletin.agreementDate}>{lastBulletin.agreementDate}</td>
+                  <td className="text-center" data-column-name="lastUpdateDate" data-column-name-data={lastBulletin.agreementDate}>{lastBulletin.agreementDate}</td>
                   <td data-column-name="notifcation">
                     
                       <GenericModal 
                         buttonLabel="Hello" 
                         actionButton=
                         {
-                          (<span class="material-icons active-notification">
+                          (<span class="material-icons active-notification ">
                             notifications_active
                           </span>)
                         }
-                        modalBody={`La ultima actualizacion del expediente ${record} es: .....`}
+                        modalBody={(
+                          <ModalForm/>
+                        )}
                       ></GenericModal>
                   </td>
                   <td data-column-name="tasks">
@@ -82,7 +86,7 @@ function BulletinTable (event) {
                           buttonLabel="Hello" 
                           actionButton=
                           {
-                            (<span class="material-icons active-notification">
+                            (<span class="material-icons unactive-notification-task">
                               event_busy
                             </span>)
                           }

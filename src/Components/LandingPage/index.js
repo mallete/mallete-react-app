@@ -58,7 +58,8 @@ const LandingPage = () => {
               <div className='card card-landing'>
                 <div className='card-body'>
                   <h5 className='card-title color-title'>Administra tus casos</h5>
-                  <p className='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. Lorem ipsum dolor sit amet consectetur adipisicing elit. In, porro reiciendis qui ipsum nisi numquam cumque doloribus architecto quasi sequi dolore iste eaque, quidem ratione a atque obcaecati, delectus debitis?</p>
+                  <p className='card-text'>De acuerdo al plan contratado podrás guardar de 5 a 50 casos, darseguimiento y asignar tareas o notificaciones a estos y así tener un mejor control sobre tus actividades por realizar. 
+                  Y cuando el juicio termine, podras borrar de tu almacenamiento el o los casos y traer nuevos a tu tabla de organización. </p>
                 </div>
               </div>
             </div>

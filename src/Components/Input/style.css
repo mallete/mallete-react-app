@@ -1,0 +1,20 @@
+main {
+  padding: 16px;
+}
+
+.form-group {
+  width: 510px;
+  height: 89px;
+}
+
+.form-control {
+  background: #F7F8F8;
+}
+
+@media only screen and (max-width: 576px) {
+  .form-group {
+    width: 346px;
+    height: 89px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

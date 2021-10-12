@@ -2,31 +2,54 @@ main {
   padding: 16px;
 }
 
-.plan {
+.card-plan {
+  border: solid 2px #860E56;
+}
+
+.card-plan .plan {
   font-size: 40px;
   color: #640A40;
   font-weight: bold;
 }
 
-.price {
+.card-plan .price {
   color: #D91289;
 }
 
-.features {
+.card-plan .feature-list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.card-plan .feature-list .features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5rem 0px;
   color: #2A2b2c;
 }
 
-.card {
-  border: solid 2px #860E56;
+.card-plan .feature-list .features > span {
+  margin-right: .5rem;
+}
+
+.first-card-icon {
+  margin-bottom: 7rem;
+}
+
+.second-card-icon {
+  margin-bottom: 3.5rem;
 }
 
 .btn-elegir {
   background-color: #860E56;
   color: #FCFDFD;
-  height: 35px;
-  width: 30px;
-  margin-left: 2rem;
+  height: 38px;
+  width: 205px;
+  margin-left: 2.5rem;
   padding: 0%;
+  border: solid 2px;
+  border-radius: 5px;
 }
 
 .btn-elegir:hover {
@@ -34,30 +57,27 @@ main {
   color: #860E56;
 }
 
+#last-icon {
+  margin-bottom: 4rem;
+}
+
 #elegir {
   margin-top: 2rem;
 }
 
-#elegir2 {
-  margin-top: 2rem;
+/*
+@media only screen and (min-width: 576px){
+    .btn-elegir{
+        margin-left: 2.5rem;
+    }
+    #elegir2{
+        margin-top: 4rem;
+    }
+    #elegir3{
+        margin-top: 1rem;
+    }
 }
-
-#elegir3 {
-  margin-top: 1rem;
-}
-
-@media only screen and (min-width: 576px) {
-  #elegir {
-    margin-top: 8rem;
-  }
-  #elegir2 {
-    margin-top: 4rem;
-  }
-  #elegir3 {
-    margin-top: 1rem;
-  }
-}
-
+*/
 @media only screen and (min-width: 768px) {
   .plan {
     font-size: 25PX;
@@ -65,18 +85,34 @@ main {
   .btn-elegir {
     background-color: #860E56;
     color: #FCFDFD;
-    height: 35px;
-    width: 50px;
+    height: 38px;
+    width: 170px;
+    margin-left: 0;
+    padding: 0%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card-plan.card {
+    height: 70vh;
+    height: 100%;
+  }
+  .plan {
+    font-size: 40PX;
+  }
+  .btn-elegir {
+    background-color: #860E56;
+    color: #FCFDFD;
+    height: 38px;
+    width: 210px;
+    margin-left: 1.5rem;
     padding: 0%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .card {
-    height: 70vh;
-  }
-  .plan {
-    font-size: 40PX;
+  .btn-elegir {
+    margin-left: 2.7rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

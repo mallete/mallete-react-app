@@ -1,0 +1,24 @@
+@import "../../Assets/GlobalStyles/style.scss";
+
+.btn-modal-save{
+    background-color: $guinda;
+    height: 35px;
+    width: 180px;
+    border-radius: 3px;
+    padding: 0;
+    min-width: 0;
+    &:hover{
+        color: $guinda;
+        background-color: $plastik;
+    }
+}   
+
+.btn-modal-cancel{
+    color: $tiro;
+    background-color: $smoke;
+    height: 35px;
+    width: 180px;
+    border-radius: 3px;
+    padding: 0;
+    min-width: 0;
+}

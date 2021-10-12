@@ -14,12 +14,12 @@ main {
   background-color: #F7F8F8;
 }
 
-.link {
+.link-footer-component {
   color: #2A2b2c;
   text-decoration: none;
 }
 
-.link:hover {
+.link-footer-component:hover {
   color: #F9264D;
   text-decoration: underline;
 }
@@ -29,7 +29,7 @@ main {
 }
 
 @media only screen and (min-width: 576px) {
-  .link {
+  .link-footer-component {
     margin-right: 5rem;
   }
   .copyright {
