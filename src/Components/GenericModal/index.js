@@ -35,7 +35,9 @@ const GenericModal = (props) => {
     /**
      * Crear Funcion updateDataHandler para hacer patch de la data
      */
-    const updateDataHandler = ()=>{}
+    const updateDataHandler = () => {
+
+    }
     
     useEffect(()=>{
         //En el efecto cuando carga [], checar si se mando una propiedad taskId
