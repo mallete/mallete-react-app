@@ -2,19 +2,23 @@ import React from 'react';
 import { Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
 import './style.scss'
 
-const ModalForm = () => {
+const ModalForm = (props) => {
+    const {inputHandler,formData} = props
+    const {title, content } = formData
     return (
         <>
-        
+            
             <Form>
                 <FormGroup >
                     <Label for="exampleUrl">Titulo</Label>
                     <Input
                     className="modal-input"
                     type="text"
-                    name="titulo"
+                    name="title"
                     id="exampleUrl"
                     placeholder=""
+                    onChange={inputHandler}
+                    value={formData.title}
                     />
                 </FormGroup> 
                 <FormGroup>
@@ -22,9 +26,11 @@ const ModalForm = () => {
                     <Input
                     className="modal-input" 
                     type="textarea" 
-                    name="text" 
+                    name="content" 
                     id="exampleText"
                     placeholder="Describa la tarea  "
+                    onChange={inputHandler}
+                    value={content}
                     />
                     </FormGroup>
                 <FormGroup>
@@ -35,6 +41,7 @@ const ModalForm = () => {
                         name="date"
                         id="exampleDate"
                         placeholder="date placeholder"
+                        onChange={inputHandler}
                     />
                 </FormGroup>
                     <FormGroup>
@@ -45,6 +52,7 @@ const ModalForm = () => {
                         name="email"
                         id="exampleEmail"
                         placeholder="@email"
+                        onChange={inputHandler}
                     />
                 </FormGroup>
             </Form>

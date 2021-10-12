@@ -32,6 +32,9 @@ function BulletinTable (event) {
           setTrialList(responseData.data.data.activeTrials)
     }  
   }, [])
+  const submitHandler = ()=>{
+    //ponerAxios
+  }
   useEffect (async() => {
   }, [trialList])
   return (
@@ -79,6 +82,7 @@ function BulletinTable (event) {
                         modalBody={(
                           <ModalForm/>
                         )}
+                        submitHandler={submitHandler}
                       ></GenericModal>
                   </td>
                   <td data-column-name="tasks">
