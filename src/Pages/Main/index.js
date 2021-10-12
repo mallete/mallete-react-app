@@ -33,6 +33,7 @@ function Main () {
   return (
     <>
       <NavBar />
+      
       {trialList.length > 0 &&
       <BulletinTable trials={trialList} />}
       <Footer />
