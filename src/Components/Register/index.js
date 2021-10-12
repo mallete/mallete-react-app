@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss'
 import IconBlack from '../IconBlack';
 import InputGeneric from '../Input';
@@ -10,11 +10,15 @@ import { useHistory } from "react-router-dom";
 
 function RegisterCard() {
     let history = useHistory();
-    const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", password: "" })
+    const [formData, setFormData] = useState({ firstName: undefined, lastName: undefined, email: undefined, password: undefined })
     /*const createUser = HookFetchRequest({
         axiosMethod: "POST",
         pathUrl: '/users'
     })*/
+    const [isFirstNameValid, setIsFirstNameValid] = useState(false)
+    const [isLastNameValid, setIsLastNameValid] = useState(false)
+    const [isEmailValid, setIsEmailValid] = useState(false)
+    const [isPasswordValid, setIsPasswordValid] = useState(false)
     const inputHandler = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
         console.log(formData)
@@ -41,7 +45,19 @@ function RegisterCard() {
                 // handle error
                 console.log(error);
             })
-    }
+    }     
+      useEffect(() => {
+        setIsFirstNameValid((formData.firstName === ""))
+      }, [formData])
+      useEffect(() => {
+        setIsLastNameValid((formData.lastName === ""))
+      }, [formData])
+      useEffect(() => {
+        setIsEmailValid((formData.email === ""))
+      }, [formData])
+      useEffect(() => {
+        setIsPasswordValid((formData.password === ""))
+      }, [formData])
 
 
     return (
@@ -49,10 +65,10 @@ function RegisterCard() {
             <div className="row row-cols-1" id="register-form">
                 <IconBlack id="register-icon" />
                 <h4><b>Registro</b></h4>
-                <InputGeneric name="firstName" inputId="input-name" inputType="text" textLabel="Nombre" placeHolderText="Nombre" handler={inputHandler} />
-                <InputGeneric name="lastName" inputId="input-lastName" inputType="text" textLabel="Apellidos" placeHolderText="Apellido" handler={inputHandler} />
-                <InputGeneric name="email" inputId="input-email" inputType="text" textLabel="Correo" placeHolderText="Correo" handler={inputHandler} />
-                <InputGeneric name="password" inputId="input-password" inputType="password" textLabel="Contraseña" placeHolderText="Contraseña" handler={inputHandler} />
+                <InputGeneric invalidValor={isFirstNameValid} name="firstName" inputId="input-name" inputType="text" textLabel="Nombre" placeHolderText="Nombre" handler={inputHandler} />
+                <InputGeneric invalidValor={isLastNameValid} name="lastName" inputId="input-lastName" inputType="text" textLabel="Apellidos" placeHolderText="Apellido" handler={inputHandler} />
+                <InputGeneric invalidValor={isEmailValid} name="email" inputId="input-email" inputType="text" textLabel="Correo" placeHolderText="Correo" handler={inputHandler} />
+                <InputGeneric invalidValor={isPasswordValid} name="password" inputId="input-password" inputType="password" textLabel="Contraseña" placeHolderText="Contraseña" handler={inputHandler} />
                 <InputGeneric name="confirmPassword" inputId="input-confirmPassword" inputType="password" textLabel="Confirmar Contraseña" placeHolderText="Confirmar Contraseña" handler={() => { }} />
                 <div className="button-container">
                     <Button text="Registrarse" template="btn btn-primary m-3" handler={sendData} />
