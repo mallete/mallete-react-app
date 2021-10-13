@@ -10,6 +10,7 @@ function Pricing () {
   const authenticationToken = localStorage.getItem('authenticationToken')
   return (
     <>
+<<<<<<< .merge_file_QPgpi5
     {
       authenticationToken?
       <NavBar />
@@ -22,6 +23,22 @@ function Pricing () {
       :<FooterLanding/>
     }
       
+=======
+      {
+      authenticationToken
+        ? <NavBar />
+        : <NavigationBar />
+    }
+      <div className={`responsive-body ${!authenticationToken ? 'responsive-body-landing' : ''}`}>
+        <PlanCard />
+      </div>
+      {
+      authenticationToken
+        ? <Footer />
+        : <FooterLanding />
+    }
+
+>>>>>>> .merge_file_HuVtPO
     </>
   )
 }

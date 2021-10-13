@@ -18,7 +18,7 @@ function NavBar (props) {
 
   return (
     <div>
-      <Navbar className='navbar-logged' expand='md'>
+      <Navbar className='navbar-logged navbar-light' expand='md'>
         <NavbarBrand href='/'>
           <img id='logo' src={mallete} width='35' height='35' />
         </NavbarBrand>

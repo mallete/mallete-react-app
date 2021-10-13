@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 
 import Home from './Pages/Home'
@@ -16,23 +17,26 @@ import TrialDetail from './Pages/TrialDetail'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import './App.scss'
 function App () {
   const queryClient = new QueryClient()
   // const {authToken, setauthToken} = useState()
-  const userId= localStorage.getItem('userId')
-  const [islogged, setIsLogged]=useState(false)
-  useEffect(()=>{
+  const userId = localStorage.getItem('userId')
+  const [islogged, setIsLogged] = useState(false)
+  const setIsLoggedHandler = (state) => {
+    setIsLogged(state)
+  }
+  useEffect(() => {
     const logged = localStorage.getItem('authenticationToken')
-    console.log("este es el token:" + logged)
+    console.log('este es el token:' + logged)
     logged && setIsLogged(true)
-  },[])
+  }, [])
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        
+
         <div>
-        {/*
+          {/*
           <nav>
             <ul>
               <li>
@@ -60,28 +64,59 @@ function App () {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-            
-              <Route exact path='/' >
-                <Home />
-              </Route>
-              <Route path='/dashboard'>
-                <Main />
-              </Route>
-            
+
+            <Route exact path='/'>
+              {
+                  islogged
+                    ? <Redirect to={{
+                      pathname: '/dashboard'
+                    }}
+                      />
+                    : <Home />
+                }
+            </Route>
+            <Route path='/dashboard'>
+              {
+                  !islogged
+                    ? <Redirect to={{
+                      pathname: '/login'
+                    }}
+                      />
+                    : <Main />
+                }
+            </Route>
+
             <Route path='/login'>
-              <Login />
+              {
+                  islogged
+                    ? <Redirect to={{
+                      pathname: '/dashboard'
+                    }}
+                      />
+                    : <Login setIsLogged={setIsLogged} />
+                }
             </Route>
             <Route path='/registro'>
-              <CreateAccount />
+              {
+                  islogged
+                    ? <Redirect to={{
+                      pathname: '/dashboard'
+                    }}
+                      />
+                    : <CreateAccount />
+                }
+
             </Route>
-            
+
             <Route path='/búsqueda'>
-              {/*
-                authToken ?
-                <Search />
-                :
-                <Login />
-              */}
+              {
+                  islogged
+                    ? <Redirect to={{
+                      pathname: '/login'
+                    }}
+                      />
+                    : <Search />
+                }
             </Route>
             <Route path='/planes'>
               <Pricing />

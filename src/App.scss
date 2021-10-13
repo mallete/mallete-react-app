@@ -1,1 +1,9 @@
 
+.responsive-body{
+    min-height: calc(100vh - 155px - 8rem);
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+.responsive-body-landing{
+    min-height: calc(100vh - 311px - 8rem);
+}

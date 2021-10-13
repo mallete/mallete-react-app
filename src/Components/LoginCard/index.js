@@ -7,9 +7,10 @@ import { HookFetchRequest } from '../../Lib/hooksRequest'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-function LoginCard () {
+function LoginCard (props) {
   // miguelm@email.com
   // miguel
+  const { setIsLogged } = props
   const history = useHistory()
   const [formData, setFormData] = useState({ email: undefined, password: undefined })
   const [isEmailValid, setIsEmailValid] = useState(false)
@@ -43,6 +44,7 @@ function LoginCard () {
           draggable: true,
           progress: undefined
         })
+      setIsLogged(true)
       history.push('/dashboard')
       console.log(loggedUser.data)
     }
@@ -50,25 +52,25 @@ function LoginCard () {
   }, [loggedUser.isSuccess, loggedUser.data])
 
   useEffect(() => {
-    setIsEmailValid((formData.email === ""))
+    setIsEmailValid((formData.email === ''))
   }, [formData])
 
   useEffect(() => {
-    setIsPasswordValid((formData.password === ""))
+    setIsPasswordValid((formData.password === ''))
   }, [formData])
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      sendData(event)
+    }
+  }
   return (
     <div className='container'>
       <div className='row row-cols-1' id='login-form'>
         <IconBlack id='login-icon' />
         <h4><b>Iniciar Sesion</b></h4>
-        {/*
-                <input name="email" type="text" textLabel="Correo" textInput="Correo" onChange={inputHandler}/>
-                <input name="password"  type="password" textLabel="Contraseña" textInput="Contraseña"  onChange={inputHandler} />
-                */}
-
-        <InputGeneric invalidValor={isEmailValid}  name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
-        <InputGeneric invalidValor={isPasswordValid}  name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
+        <InputGeneric invalidValor={isEmailValid} name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} handleKeyDown={handleKeyDown}/>
+        <InputGeneric invalidValor={isPasswordValid} name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} handleKeyDown={handleKeyDown}/>
 
         <div className='button-container'>
           <Button text='Iniciar Sesion' template='btn btn-primary m-3' handler={sendData} />

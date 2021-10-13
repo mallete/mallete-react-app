@@ -4,7 +4,7 @@ import "./style.scss";
 
 
 const InputGeneric = (props) => {
-    const { textLabel, placeHolderText, inputType, handler, name, inputId, invalidValor } = props
+    const { textLabel, placeHolderText, inputType, handler, name, inputId, invalidValor,handleKeyDown } = props
     return (
         <>
             {/*
@@ -17,7 +17,7 @@ const InputGeneric = (props) => {
         */}
             <FormGroup>
                 <Label for={inputId}><b>{textLabel}</b></Label>
-                <Input invalid={invalidValor} name={name} type={inputType} class="form-control" id={inputId} placeholder={placeHolderText} onChange={handler} />
+                <Input invalid={invalidValor} name={name} type={inputType} class="form-control" id={inputId} placeholder={placeHolderText} onChange={handler} onKeyDown={handleKeyDown}/>
                 <FormFeedback invalid={invalidValor} >*Introduce un texto valido</FormFeedback>
             </FormGroup>
         </>

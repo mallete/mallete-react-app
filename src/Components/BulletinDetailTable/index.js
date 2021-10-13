@@ -9,7 +9,7 @@ import ModalForm from '../ModalForm'
 
 const { REACT_APP_API_ENDPOINT } = process.env
 
-function BulletinTable (event) {
+function BulletinDetailTable (props) {
   const authToken = localStorage.getItem('authenticationToken')
   const userId = localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
@@ -97,4 +97,4 @@ function BulletinTable (event) {
   )
 }
 
-export default BulletinTable
+export default BulletinDetailTable

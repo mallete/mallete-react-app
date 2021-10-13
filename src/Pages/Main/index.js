@@ -1,11 +1,11 @@
 import Footer from '../../Components/Footer'
 import NavBar from '../../Components/NavBar'
 import BulletinTable from '../../Components/BulletinTable'
+import { useHistory } from 'react-router-dom'
 import SearchComponent from '../../Components/SearchComponent'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
-
 
 function Main () {
   const history = useHistory()
@@ -26,41 +26,47 @@ function Main () {
     const data = trialList
     const value = event.target.value
 
-    const result = data.filter( trial => {
-     return trial.record.toLowerCase().includes( value.toLowerCase()) || 
-     trial.trial.plaintiff.toLowerCase().includes( value.toLowerCase()) ||
-     trial.trial.defendant.toLowerCase().includes( value.toLowerCase()); 
+    const result = data.filter(trial => {
+      return trial.record.toLowerCase().includes(value.toLowerCase()) ||
+     trial.trial.plaintiff.toLowerCase().includes(value.toLowerCase()) ||
+     trial.trial.defendant.toLowerCase().includes(value.toLowerCase())
     })
-    setFilterResult( result )
+    setFilterResult(result)
   }
-  
-  useEffect (async() => {
+
+  useEffect(async () => {
     const responseData = await axios({
-        url: '/active-trials',
-        baseURL: REACT_APP_API_ENDPOINT,
-        method: "get",
-        headers: {'authorization': authToken},
-        params:{
-          user: userId
-        }
-      })
-      console.log({responseData})
-    if( responseData.data && 
+      url: '/active-trials',
+      baseURL: REACT_APP_API_ENDPOINT,
+      method: 'get',
+      headers: { authorization: authToken },
+      params: {
+        user: userId
+      }
+    })
+    console.log({ responseData })
+    if (responseData.data &&
         responseData.data.data &&
         responseData.data.data &&
-        responseData.data.data.activeTrials.length > 0 
-        ){
-          setTrialList(responseData.data.data.activeTrials)
-    }  
+        responseData.data.data.activeTrials.length > 0
+    ) {
+      setTrialList(responseData.data.data.activeTrials)
+    }
   }, [])
   return (
     <>
       <NavBar />
-      <SearchComponent />
-      {trialList.length > 0 &&
-      <BulletinTable 
-      trials={trialList}
-      filterHandler = { filterHandler } />}
+      
+      
+        <div className='responsive-body'>
+          <SearchComponent />
+          {trialList.length > 0 &&
+            <BulletinTable
+              trials={trialList}
+              filterHandler={filterHandler}
+            />
+          }
+        </div>
       <Footer />
     </>
   )
