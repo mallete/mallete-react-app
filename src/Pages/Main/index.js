@@ -59,12 +59,14 @@ function Main () {
     <>
       <NavBar />
       <SearchComponent searchHandler = {filterHandler} />
-      {trialList.length > 0 &&
+      {
+        trialList.length > 0 &&
         <div className='responsive-body'>
           <BulletinTable
             trials={filterResult}
           />
-        </div>}
+        </div>
+      }
       <Footer />
     </>
   )
