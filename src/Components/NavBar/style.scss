@@ -2,10 +2,15 @@
 
 .navbar-logged{
     background-color: $ghost;
+    .navbar-toggler{
+        border: none;
+        .navbar-toggler-icon{
+            filter: brightness(0) invert(1);
+            filter:none;
+        }
+      }
 }
-.navbar-toggler-icon{
-    filter: brightness(0) invert(1)
-}
+
 .link-perfil{
     color: $dark-sky;
     &:hover{

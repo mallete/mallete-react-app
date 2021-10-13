@@ -68,28 +68,23 @@ function BulletinTable (event) {
                   <td data-column-name='defendant' data-column-name-data={defendant}>{defendant}</td>
                   <td className='text-center' data-column-name='lastUpdateDate' data-column-name-data={lastBulletin.agreementDate}>{lastBulletin.agreementDate}</td>
                   <td data-column-name='notifcation'>
-
-                    <GenericModal
-                      buttonLabel='Hello'
-                      actionButton={
-                          (<span class='material-icons active-notification '>
-                            notifications_active
-                           </span>)
-                        }
-                      modalBody={(
-                        <ModalForm />
-                        )}
-                    />
+                    <Link to={`/trial-detail/${activeTrial._id}`} activeTrial={activeTrial} className='material-icons active-notification '>
+                      {activeTrial.updated ? 'notifications_active' : 'notifications'}
+                    </Link>
                   </td>
                   <td data-column-name='tasks'>
                     <GenericModal
                       buttonLabel='Hello'
+                      trialId={_id}
                       actionButton={
-                            (<span class='material-icons unactive-notification-task'>
-                              event_busy
-                             </span>)
-                          }
-                      modalBody={`La ultima actualizacion del expediente ${record} es: .....`}
+                          (<span class='material-icons active-notification '>
+                            event_busy
+                           </span>
+                          )
+                        }
+                      modalBody={(
+                        <ModalForm />
+                        )}
                     />
                   </td>
                 </tr>

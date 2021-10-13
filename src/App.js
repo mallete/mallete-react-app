@@ -17,12 +17,15 @@ import TrialDetail from './Pages/TrialDetail'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import './App.scss'
 function App () {
   const queryClient = new QueryClient()
   // const {authToken, setauthToken} = useState()
   const userId = localStorage.getItem('userId')
   const [islogged, setIsLogged] = useState(false)
+  const setIsLoggedHandler = (state) => {
+    setIsLogged(state)
+  }
   useEffect(() => {
     const logged = localStorage.getItem('authenticationToken')
     console.log('este es el token:' + logged)
@@ -90,7 +93,7 @@ function App () {
                       pathname: '/dashboard'
                     }}
                       />
-                    : <Login />
+                    : <Login setIsLogged={setIsLogged} />
                 }
             </Route>
             <Route path='/registro'>

@@ -56,10 +56,12 @@ function Main () {
       <NavBar />
       <SearchComponent />
       {trialList.length > 0 &&
-        <BulletinTable
-          trials={trialList}
-          filterHandler={filterHandler}
-        />}
+        <div className='responsive-body'>
+          <BulletinTable
+            trials={trialList}
+            filterHandler={filterHandler}
+          />
+        </div>}
       <Footer />
     </>
   )

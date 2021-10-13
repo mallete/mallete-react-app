@@ -7,9 +7,10 @@ import { HookFetchRequest } from '../../Lib/hooksRequest'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-function LoginCard () {
+function LoginCard (props) {
   // miguelm@email.com
   // miguel
+  const { setIsLogged } = props
   const history = useHistory()
   const [formData, setFormData] = useState({ email: undefined, password: undefined })
   const [isEmailValid, setIsEmailValid] = useState(false)
@@ -43,6 +44,7 @@ function LoginCard () {
           draggable: true,
           progress: undefined
         })
+      setIsLogged(true)
       history.push('/dashboard')
       console.log(loggedUser.data)
     }

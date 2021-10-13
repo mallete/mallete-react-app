@@ -10,18 +10,20 @@ function Pricing () {
   const authenticationToken = localStorage.getItem('authenticationToken')
   return (
     <>
-    {
-      authenticationToken?
-      <NavBar />
-      :<NavigationBar/>
+      {
+      authenticationToken
+        ? <NavBar />
+        : <NavigationBar />
     }
-      <PlanCard />
-    {
-      authenticationToken?
-      <Footer />
-      :<FooterLanding/>
+      <div className={`responsive-body ${!authenticationToken ? 'responsive-body-landing' : ''}`}>
+        <PlanCard />
+      </div>
+      {
+      authenticationToken
+        ? <Footer />
+        : <FooterLanding />
     }
-      
+
     </>
   )
 }
