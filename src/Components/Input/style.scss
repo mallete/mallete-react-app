@@ -1,19 +1,17 @@
 @import "../../Assets/GlobalStyles/style.scss";
 
 .form-group{
-    width: 510px;
-    height: 89px;
+   margin-bottom: 1rem;
+   width: 100%;
+   .form-control{
+    background: $ghost;
+    }
     //padding-left: 4rem;
     //padding-right: 4rem;
 }
 
-.form-control{
-    background: $ghost;
-}
+
 
 @media only screen and (max-width: 576px){
-    .form-group{
-        width: 346px;
-       height: 89px;
-    }
+   
 }
