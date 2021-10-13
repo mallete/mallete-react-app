@@ -50,11 +50,11 @@ function LoginCard () {
   }, [loggedUser.isSuccess, loggedUser.data])
 
   useEffect(() => {
-    setIsEmailValid((formData.email === ""))
+    setIsEmailValid((formData.email === ''))
   }, [formData])
 
   useEffect(() => {
-    setIsPasswordValid((formData.password === ""))
+    setIsPasswordValid((formData.password === ''))
   }, [formData])
 
   return (
@@ -67,8 +67,8 @@ function LoginCard () {
                 <input name="password"  type="password" textLabel="Contraseña" textInput="Contraseña"  onChange={inputHandler} />
                 */}
 
-        <InputGeneric invalidValor={isEmailValid}  name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
-        <InputGeneric invalidValor={isPasswordValid}  name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
+        <InputGeneric invalidValor={isEmailValid} name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
+        <InputGeneric invalidValor={isPasswordValid} name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
 
         <div className='button-container'>
           <Button text='Iniciar Sesion' template='btn btn-primary m-3' handler={sendData} />
