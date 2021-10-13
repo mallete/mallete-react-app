@@ -4,15 +4,23 @@ import BulletinTable from '../../Components/BulletinTable'
 import SearchComponent from '../../Components/SearchComponent'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 
 function Main () {
+  const history = useHistory()
+  const logged = localStorage.getItem('authenticationToken')
+  console.log(logged)
+  if(logged === "" || logged == null){
+      history.push("/")
+  }
   const authToken =localStorage.getItem('authenticationToken')
   const userId= localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
   const { REACT_APP_API_ENDPOINT } = process.env
 
   const [filterResult, setFilterResult ] = useState([])
+  
   
   const filterHandler = event => {
     const data = trialList
