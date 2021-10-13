@@ -1,0 +1,55 @@
+main {
+  padding: 16px;
+}
+
+.navbar-logged {
+  background-color: #F7F8F8;
+}
+
+.navbar-logged .navbar-toggler {
+  border: none;
+}
+
+.navbar-logged .navbar-toggler .navbar-toggler-icon {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+  -webkit-filter: none;
+          filter: none;
+}
+
+.link-perfil {
+  color: #2A2b2c;
+}
+
+.link-perfil:hover {
+  font-weight: bold;
+  color: #860E56;
+  text-decoration: none;
+}
+
+#logo {
+  margin-left: none;
+}
+
+#perfil {
+  margin-right: none;
+}
+
+.link-navbar-logged {
+  color: #2A2b2c;
+}
+
+.link-navbar-logged:hover {
+  font-weight: bold;
+  color: #860E56;
+}
+
+@media only screen and (min-width: 576px) {
+  #logo {
+    margin-left: 5rem;
+  }
+  #perfil {
+    margin-right: 5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
