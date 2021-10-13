@@ -10,6 +10,18 @@ function Pricing () {
   const authenticationToken = localStorage.getItem('authenticationToken')
   return (
     <>
+    {
+      authenticationToken?
+      <NavBar />
+      :<NavigationBar/>
+    }
+      <PlanCard />
+    {
+      authenticationToken?
+      <Footer />
+      :<FooterLanding/>
+    }
+      
       {
       authenticationToken
         ? <NavBar />
@@ -23,7 +35,6 @@ function Pricing () {
         ? <Footer />
         : <FooterLanding />
     }
-
     </>
   )
 }

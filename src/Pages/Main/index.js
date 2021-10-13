@@ -23,13 +23,16 @@ function Main () {
   const filterHandler = event => {
     const data = trialList
     const value = event.target.value
-
+    if ( ! value)
+    setFilterResult(trialList)
+    else{
     const result = data.filter(trial => {
       return trial.record.toLowerCase().includes(value.toLowerCase()) ||
      trial.trial.plaintiff.toLowerCase().includes(value.toLowerCase()) ||
      trial.trial.defendant.toLowerCase().includes(value.toLowerCase())
     })
     setFilterResult(result)
+    }
   }
 
   useEffect(async () => {
@@ -49,22 +52,21 @@ function Main () {
         responseData.data.data.activeTrials.length > 0
     ) {
       setTrialList(responseData.data.data.activeTrials)
+      setFilterResult(responseData.data.data.activeTrials)
     }
   }, [])
   return (
     <>
       <NavBar />
-      
-      
+      <SearchComponent searchHandler = {filterHandler} />
+      {
+        trialList.length > 0 &&
         <div className='responsive-body'>
-          <SearchComponent />
-          {trialList.length > 0 &&
-            <BulletinTable
-              trials={trialList}
-              filterHandler={filterHandler}
-            />
-          }
+          <BulletinTable
+            trials={filterResult}
+          />
         </div>
+      }
       <Footer />
     </>
   )
