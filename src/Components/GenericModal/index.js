@@ -61,7 +61,6 @@ const GenericModal = (props) => {
                       transition: Flip
                     })
             toggle()
-
         }) 
         //Mandar toast de que algo salio mal
         .catch(function (error) {
@@ -84,7 +83,58 @@ const GenericModal = (props) => {
      * Crear Funcion updateDataHandler para hacer patch de la data
      */
     const updateDataHandler = () => {
-        axios.patch((updateUseUrl))
+        const submitHandler = () => {
+            console.log('SubmitHanlderTriggered')
+            console.log(formData)
+             //Aqui va el POST axios
+             console.log(moment(formData.limitDate))
+             const sendData = {
+                ...formData,
+                limitDate: moment(formData.limitDate),
+                record,
+                activeTrial:trial
+            }
+             axios({
+                url: updateUseUrl,
+                method: "patch",
+                headers: {
+                  authorization: authenticationToken
+                },
+                data: sendData
+              })
+              .then(function (response) {
+                console.log(response)
+                //Si es success llamar
+                toast.success('Tarea modificada exitosamente',
+                        {
+                          position: 'top-right',
+                          autoClose: 5000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                            draggable: true,
+                          progress: undefined,
+                          transition: Flip
+                        })
+                toggle()
+            }) 
+            //Mandar toast de que algo salio mal
+            .catch(function (error) {
+                console.log(error)
+                toast.error('Ups! algo salio mal, intentalo de nuevo',
+                    {
+                      position: 'top-right',
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                        draggable: true,
+                      progress: undefined,
+                      transition: Flip
+                    })
+            })
+        }
+        
     }
     
     useEffect(() => {

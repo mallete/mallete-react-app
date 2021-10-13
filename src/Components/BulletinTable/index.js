@@ -9,28 +9,16 @@ import ModalForm from '../ModalForm'
 
 const { REACT_APP_API_ENDPOINT } = process.env
 
-function BulletinTable (event) {
+function BulletinTable (props) {
   const authToken = localStorage.getItem('authenticationToken')
   const userId = localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
-
+  const {trials} = props
   useEffect(async () => {
-    const responseData = await axios({
-      url: '/active-trials',
-      baseURL: REACT_APP_API_ENDPOINT,
-      method: 'get',
-      headers: { authorization: authToken },
-      params: {
-        user: userId
-      }
-    })
-    if (responseData.data &&
-        responseData.data.data &&
-        responseData.data.data &&
-        responseData.data.data.activeTrials.length > 0
-    ) {
-      setTrialList(responseData.data.data.activeTrials)
-    }
+    const responseData = trials
+      
+      setTrialList(trials)
+
   }, [])
   useEffect(async () => {
   }, [trialList])
@@ -49,9 +37,9 @@ function BulletinTable (event) {
         </thead>
         <tbody>
           {
-            trialList &&
-            trialList.length > 0 &&
-            trialList.map((activeTrial, index) => {
+            trials &&
+            trials.length > 0 &&
+            trials.map((activeTrial, index) => {
               const { record, plaintiff, defendant, bulletins, _id } = activeTrial.trial
               console.log(activeTrial._id)
               let lastBulletin = {}
@@ -68,7 +56,7 @@ function BulletinTable (event) {
                   <td data-column-name='defendant' data-column-name-data={defendant}>{defendant}</td>
                   <td className='text-center' data-column-name='lastUpdateDate' data-column-name-data={lastBulletin.agreementDate}>{lastBulletin.agreementDate}</td>
                   <td data-column-name='notifcation'>
-                    <Link to={`/trial-detail/${activeTrial._id}`} activeTrial={activeTrial} className='material-icons active-notification '>
+                    <Link to={`/trial-detail/${activeTrial._id}`} activeTrial={activeTrial} className={`material-icons ${activeTrial.updated ? 'active-notification' : 'unactive-notification'}`}>
                       {activeTrial.updated ? 'notifications_active' : 'notifications'}
                     </Link>
                   </td>
@@ -77,7 +65,7 @@ function BulletinTable (event) {
                       buttonLabel='Hello'
                       trialId={_id}
                       actionButton={
-                          (<span class='material-icons active-notification '>
+                          (<span class='material-icons active-notification'>
                             event_busy
                            </span>
                           )
@@ -97,4 +85,4 @@ function BulletinTable (event) {
   )
 }
 
-export default BulletinTable
+export default BulletinTable 
