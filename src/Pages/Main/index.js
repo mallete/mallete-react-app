@@ -52,6 +52,7 @@ function Main () {
         responseData.data.data.activeTrials.length > 0
     ) {
       setTrialList(responseData.data.data.activeTrials)
+      setFilterResult(responseData.data.data.activeTrials)
     }
   }, [])
   return (
