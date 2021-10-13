@@ -54,14 +54,17 @@ function Main () {
   return (
     <>
       <NavBar />
-      <SearchComponent />
-      {trialList.length > 0 &&
+      
+      
         <div className='responsive-body'>
-          <BulletinTable
-            trials={trialList}
-            filterHandler={filterHandler}
-          />
-        </div>}
+          <SearchComponent />
+          {trialList.length > 0 &&
+            <BulletinTable
+              trials={trialList}
+              filterHandler={filterHandler}
+            />
+          }
+        </div>
       <Footer />
     </>
   )

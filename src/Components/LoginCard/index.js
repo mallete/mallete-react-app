@@ -59,18 +59,18 @@ function LoginCard (props) {
     setIsPasswordValid((formData.password === ''))
   }, [formData])
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      sendData(event)
+    }
+  }
   return (
     <div className='container'>
       <div className='row row-cols-1' id='login-form'>
         <IconBlack id='login-icon' />
         <h4><b>Iniciar Sesion</b></h4>
-        {/*
-                <input name="email" type="text" textLabel="Correo" textInput="Correo" onChange={inputHandler}/>
-                <input name="password"  type="password" textLabel="Contraseña" textInput="Contraseña"  onChange={inputHandler} />
-                */}
-
-        <InputGeneric invalidValor={isEmailValid} name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} />
-        <InputGeneric invalidValor={isPasswordValid} name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} />
+        <InputGeneric invalidValor={isEmailValid} name='email' inputId='input-email' inputType='text' textLabel='Correo' placeHolderText='Correo' handler={inputHandler} handleKeyDown={handleKeyDown}/>
+        <InputGeneric invalidValor={isPasswordValid} name='password' inputId='input-password' inputType='password' textLabel='Contraseña' placeHolderText='Contraseña' handler={inputHandler} handleKeyDown={handleKeyDown}/>
 
         <div className='button-container'>
           <Button text='Iniciar Sesion' template='btn btn-primary m-3' handler={sendData} />

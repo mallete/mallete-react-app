@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
-import TrialDetaill from '../../Components/BulletinTable'
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import GenericTable from '../../Components/GenericTable';
 //import GenericModal from "../GenericModal"
+import BulletinDetailTable from '../../Components/BulletinDetailTable'
+
 const { REACT_APP_API_ENDPOINT } = process.env
 function TrialDetail (props) {
     const authToken =localStorage.getItem('authenticationToken')
@@ -17,29 +18,40 @@ function TrialDetail (props) {
     let headers = [
                 {
                     displayName: "Número de expediente",
-                    codeName:""    
+                    codeName:"record"    
                 },
                 {
                     displayName: "Actor",
-                    codeName:""
+                    codeName:"plaintiff"
                 },
                 {
                     displayName: "Demandante",
-                    codeName:""    
+                    codeName:"defendant"    
                 },
                 {
-                    displayName: "Última actualización",
-                    codeName:""    
+                    displayName: "Fecha de acuerdo",
+                    codeName:"agreementDate"    
+                },
+                {
+                    displayName: "Fecha de publicacion",
+                    codeName:"publicationDate"    
+                },
+                {
+                    displayName: "Boletin",
+                    codeName:"rawContent"    
                 },
                 {
                     displayName: "Notificación",
-                    codeName:""
+                    codeName:"notification"
                 }, 
                 {
                     displayName: "Tareas",
-                    codeName:""
+                    codeName:"addNotification"
                 }, 
             ]
+            const validateColumn =  (columnName,columns) =>{
+                return columns.filter( ({ codeName }) => codeName === columnName ).length > 0
+            }
     useEffect (async() => {
         const responseData = await axios({
             url: '/active-trials/' + id,
@@ -52,28 +64,49 @@ function TrialDetail (props) {
             responseData.data.data.activeTrial
             ){
                 setactiveTrial(responseData.data.data.activeTrial)
-                /*
-                const bulletins = responseData.data.data.activeTrial.bulletins.map((item,index)=>{
-                    const column =  Object.keys(item).map((bulletinProp)=>{
-                        return {
-                            propName: bulletinProp,
-                            content: item[bulletinProp]
-                        }
-                    })
+                
+                const bulletins = responseData.data.data.activeTrial.trial.bulletins.reverse().map((bulletin,index)=>{
+                    let column =  Object.keys(bulletin).reduce((accum,bulletinProp)=>{
+                        const includeColumn = validateColumn(bulletinProp, headers)
+                        if(includeColumn)
+                            return [...accum,{
+                                propName: bulletinProp,
+                                content: bulletin[bulletinProp]
+                            }]
+                        return accum
+                    },[])
+                    const notification ={
+                        propName: "notification",
+                        content: (
+                            <span class='material-icons active-notification '>
+                                event
+                               </span>
+                        )
+                    } 
+                    const addNotification ={
+                        propName: "addNotification",
+                        content: (
+                            <span class='material-icons active-notification '>
+                                event_busy
+                               </span>
+                        )
+                    } 
+                    return [...column,notification,addNotification]
                 })
-                */
-              console.log(responseData.data.data)
+                setRowsData(bulletins)
+              console.log(bulletins)
         }  
       }, [])
   return (
     <>
-    {id}
-    {/*
-        activeTrial &&
-        <GenericTable headers={headers} rows={rowsData}/>
-        
-    */}
-      
+        {id}
+        {/*
+            
+            
+        */}{
+        activeTrial && rowsData.length > 0 &&
+            <GenericTable headers={headers} rows={rowsData}/>
+        }
     </>
   )
 }

@@ -30,16 +30,39 @@ const GenericTable = (props) => {
   console.log({ headers, rows })
   return (
     <>
-      <Table>
-        <thead>
+      <Table className="table-responsive-sm table table-striped">
+        <thead className="tab-header">
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+              {
+                  headers &&
+                  headers.map( ({displayName,codeName}, index) => {
+                    return (<th data-header-codename={codeName}>{displayName}</th>)
+                  })
+              }
           </tr>
         </thead>
-        <tbody />
+        <tbody>
+            {
+                rows && 
+                rows.map( (row,index) => {
+                    return (
+                        <tr>
+                            {
+                                row.map( (column,index) => {
+                                    return (
+                                        <td data-column-name={column.propName} data-column-name-data={""}>
+                                            {
+                                            column.content
+                                            }
+                                        </td>
+                                    )
+                                } )
+                            }
+                        </tr>
+                    )
+                })
+            }
+        </tbody>
       </Table>
     </>
   )

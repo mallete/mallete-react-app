@@ -1,0 +1,30 @@
+@import "../../Assets/GlobalStyles/style.scss";
+.tab-header{
+    color: $plastik;
+    background-color: $guinda;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: $transparent-rose;
+}
+td{
+    color: $dark-sky;
+}
+.notification-column{
+    width: 5px;
+}
+.active-notification{ 
+    color:$red;
+    margin-left: 2.5rem;
+}
+.active-notification-task{
+    color: $red;
+    margin-left: 1rem;
+}
+.unactive-notification{
+    color: $valspar;
+    margin-left: 2.5rem;
+}
+.unactive-notification-task{
+    color: $valspar;
+    margin-left: 1rem;
+}
