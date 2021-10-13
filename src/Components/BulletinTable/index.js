@@ -50,6 +50,7 @@ function BulletinTable (event) {
         <tbody>
           {
             trialList &&
+            trialList.length > 0 &&
             trialList.map((activeTrial, index) => {
               const { record, plaintiff, defendant, bulletins, _id } = activeTrial.trial
               console.log(activeTrial._id)
@@ -73,10 +74,10 @@ function BulletinTable (event) {
                       actionButton={
                           (<span class='material-icons active-notification '>
                             notifications_active
-                          </span>)
+                           </span>)
                         }
                       modalBody={(
-                          <ModalForm />
+                        <ModalForm />
                         )}
                     />
                   </td>
@@ -86,10 +87,10 @@ function BulletinTable (event) {
                       actionButton={
                             (<span class='material-icons unactive-notification-task'>
                               event_busy
-                            </span>)
+                             </span>)
                           }
                       modalBody={`La ultima actualizacion del expediente ${record} es: .....`}
-                     />
+                    />
                   </td>
                 </tr>
               )
