@@ -5,33 +5,34 @@ import { useHistory } from 'react-router-dom'
 import SearchComponent from '../../Components/SearchComponent'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
 
 function Main () {
   const history = useHistory()
   const logged = localStorage.getItem('authenticationToken')
   console.log(logged)
-  if(logged === "" || logged == null){
-      history.push("/")
+  if (logged === '' || logged == null) {
+    history.push('/')
   }
-  const authToken =localStorage.getItem('authenticationToken')
-  const userId= localStorage.getItem('userId')
+  const authToken = localStorage.getItem('authenticationToken')
+  const userId = localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
   const { REACT_APP_API_ENDPOINT } = process.env
 
-  const [filterResult, setFilterResult ] = useState([])
-  
-  
+  const [filterResult, setFilterResult] = useState([])
+
   const filterHandler = event => {
     const data = trialList
     const value = event.target.value
-
+    if ( ! value)
+    setFilterResult(trialList)
+    else{
     const result = data.filter(trial => {
       return trial.record.toLowerCase().includes(value.toLowerCase()) ||
      trial.trial.plaintiff.toLowerCase().includes(value.toLowerCase()) ||
      trial.trial.defendant.toLowerCase().includes(value.toLowerCase())
     })
     setFilterResult(result)
+    }
   }
 
   useEffect(async () => {
@@ -56,17 +57,13 @@ function Main () {
   return (
     <>
       <NavBar />
-      
-      
+      <SearchComponent searchHandler = {filterHandler} />
+      {trialList.length > 0 &&
         <div className='responsive-body'>
-          <SearchComponent />
-          {trialList.length > 0 &&
-            <BulletinTable
-              trials={trialList}
-              filterHandler={filterHandler}
-            />
-          }
-        </div>
+          <BulletinTable
+            trials={filterResult}
+          />
+        </div>}
       <Footer />
     </>
   )

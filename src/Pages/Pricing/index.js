@@ -10,7 +10,6 @@ function Pricing () {
   const authenticationToken = localStorage.getItem('authenticationToken')
   return (
     <>
-<<<<<<< .merge_file_QPgpi5
     {
       authenticationToken?
       <NavBar />
@@ -23,7 +22,6 @@ function Pricing () {
       :<FooterLanding/>
     }
       
-=======
       {
       authenticationToken
         ? <NavBar />
@@ -37,8 +35,6 @@ function Pricing () {
         ? <Footer />
         : <FooterLanding />
     }
-
->>>>>>> .merge_file_HuVtPO
     </>
   )
 }
