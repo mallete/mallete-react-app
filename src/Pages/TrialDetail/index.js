@@ -86,9 +86,9 @@ function TrialDetail (props) {
                     const addNotification ={
                         propName: "addNotification",
                         content: (
-                            <span class='material-icons active-notification '>
-                                event_busy
-                               </span>
+                            <span class='material-icons active-notification material-icons-outlined'>
+                                calendar_today
+                            </span>
                         )
                     } 
                     return [...column,notification,addNotification]
