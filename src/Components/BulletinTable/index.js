@@ -63,9 +63,10 @@ function BulletinTable (props) {
                   <td data-column-name='tasks'>
                     <GenericModal
                       buttonLabel='Hello'
-                      trialId={_id}
+                      trial={_id}
+                      record={record}
                       actionButton={
-                          (<span class='material-icons active-notification'>
+                          (<span class=' ml-1 material-icons active-notification'>
                             event_busy
                            </span>
                           )
