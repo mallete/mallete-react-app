@@ -7,7 +7,7 @@ import Button from '../Button';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useHistory } from "react-router-dom";
-
+const { REACT_APP_API_ENDPOINT } = process.env
 function RegisterCard(props) {
     const { setIsLogged } = props
     let history = useHistory();
@@ -25,7 +25,8 @@ function RegisterCard(props) {
         console.log(formData)
     }
     const sendData = async (event) => {
-        axios.post('http://localhost:8080/users', formData)
+        const registerUrl = REACT_APP_API_ENDPOINT + "/users"
+        axios.post(registerUrl, formData)
             .then(function (response) {
                 // handle success
                 console.log(response);
