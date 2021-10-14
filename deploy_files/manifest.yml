@@ -3,4 +3,4 @@ applications:
   memory: 256M
   random-route: false
   instances: 1
-  buildpack: ngnix_buildpack
+  buildpack: nginx_buildpack
