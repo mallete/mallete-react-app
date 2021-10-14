@@ -5,24 +5,8 @@ import axios from 'axios';
 import './style.scss'
 
 
-const SearchForm = () => {
-    //const { handler } = props
-    const [searchData, setSearchData] = useState()
-    const inputHandler = (event) => {
-        setSearchData({ ...searchData, [event.target.name]: event.target.value })
-        console.log(searchData)
-    }
-    const sendData = async (event) => {
-        axios.get('http://localhost:8080/active-trials')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-    }
+const SearchForm = (props) => {
+    const { search, inputHandler } = props
 
     return (
         <div className="container d-block" id="search-form">
@@ -52,7 +36,7 @@ const SearchForm = () => {
                 </Form>
             </div>
             <div className='d-flex flex-row-reverse'>
-                <Button text='Buscar' template='btn btn-primary m-3' handler={sendData} />
+                <Button text='Buscar' template='btn btn-primary m-3' handler={search} />
             </div>
         </div>
     )

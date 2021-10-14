@@ -3,7 +3,8 @@ import LandingPage from '../../Components/LandingPage'
 
 // import './App.scss';
 
-function Home () {
+function Home (props) {
+  const { setIsLogged } = props
   return (
     <>
 

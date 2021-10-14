@@ -8,8 +8,8 @@ function Login (props) {
   return (
     <>
       <div className='logincard-container'>
-      <LoginCard setIsLogged={setIsLogged} />
-    </div>
+        <LoginCard setIsLogged={setIsLogged} />
+      </div>
 
     </>
   )

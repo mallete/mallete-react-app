@@ -14,23 +14,22 @@ const GenericTable = (props) => {
      *      }
      *  ],
      *  rows:[
-     *      {
-     *          extraClass: ""
-     *          columns:[
+     *      [  <- columns
+     *         
      *              {
      *                  propName: ""
      *                  content: "Text Or Component"
      *                  extraClass: "",
      *              }
-     *          ]
-     *      }
+     *          
+     *      ],
      *  ]
      */
   const { headers, rows } = props
   console.log({ headers, rows })
   return (
     <>
-      <Table className="table-responsive-sm table table-striped">
+      <Table className="table-responsive-sm table table-striped mt-5">
         <thead className="tab-header">
           <tr>
               {
@@ -51,9 +50,12 @@ const GenericTable = (props) => {
                                 row.map( (column,index) => {
                                     return (
                                         <td data-column-name={column.propName} data-column-name-data={""}>
-                                            {
-                                            column.content
-                                            }
+                                          {
+                                            column.propName== "rawContent" ? 
+                                            <div dangerouslySetInnerHTML={column.content} />: 
+                                              column.content 
+                                          }
+                                            
                                         </td>
                                     )
                                 } )

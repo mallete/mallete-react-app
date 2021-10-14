@@ -8,7 +8,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useHistory } from "react-router-dom";
 
-function RegisterCard() {
+function RegisterCard(props) {
+    const { setIsLogged } = props
     let history = useHistory();
     const [formData, setFormData] = useState({ firstName: undefined, lastName: undefined, email: undefined, password: undefined })
     /*const createUser = HookFetchRequest({
@@ -39,7 +40,8 @@ function RegisterCard() {
                         progress: undefined,
                     }
                 )
-                history.push("/");
+                //setIsLogged(true)
+                history.push('/dashboard')
             })
             .catch(function (error) {
                 // handle error
@@ -61,7 +63,7 @@ function RegisterCard() {
 
 
     return (
-        <div className="container responsive-body">
+        <div className="container responsive-body d-flex justify-content-center">
             <div className="row row-cols-1" id="register-form">
                 <IconBlack id="register-icon" />
                 <h4><b>Registro</b></h4>

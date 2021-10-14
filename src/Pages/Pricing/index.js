@@ -6,35 +6,24 @@ import NavigationBar from '../../Components/NavigationBar'
 import PlanCard from '../../Components/PlanCards'
 // import './App.scss';
 
-function Pricing () {
+function Pricing(props) {
   const authenticationToken = localStorage.getItem('authenticationToken')
+  const { setIsLogged } = props
   return (
     <>
-    {
-      authenticationToken?
-      <NavBar />
-      :<NavigationBar/>
-    }
-      <PlanCard />
-    {
-      authenticationToken?
-      <Footer />
-      :<FooterLanding/>
-    }
-      
       {
-      authenticationToken
-        ? <NavBar />
-        : <NavigationBar />
-    }
+        authenticationToken
+          ? <NavBar setIsLogged={setIsLogged} />
+          : <NavigationBar />
+      }
       <div className={`responsive-body ${!authenticationToken ? 'responsive-body-landing' : ''}`}>
         <PlanCard />
       </div>
       {
-      authenticationToken
-        ? <Footer />
-        : <FooterLanding />
-    }
+        authenticationToken
+          ? <Footer />
+          : <FooterLanding />
+      }
     </>
   )
 }

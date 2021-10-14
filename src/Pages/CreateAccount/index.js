@@ -2,10 +2,10 @@ import React from "react";
 //import './App.scss';
 import RegisterCard from "../../Components/Register";
 
-function CreateAccount() {
+function CreateAccount(props) {
   return (
     <>
-    <RegisterCard/>
+      <RegisterCard setIsLogged={props.setIsLogged}/>
     </>
   );
 }

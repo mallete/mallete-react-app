@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Container, Row, Col } from 'reactstrap';
 
-function Main() {
+function Main(props) {
   const history = useHistory()
   const logged = localStorage.getItem('authenticationToken')
   console.log(logged)
@@ -59,7 +59,7 @@ function Main() {
   }, [])
   return (
     <>
-      <NavBar />
+
       <Container className="responsive-body d-flex flex-column ">
         <Row className="align-items-center">
           <Col xs={12} md={8}>
@@ -81,7 +81,6 @@ function Main() {
           </Col>
         </Row>
       </Container>
-      <Footer />
       
     </>
   )
