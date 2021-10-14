@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './style.scss'
-import { Table } from 'reactstrap'
 import axios from 'axios'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
@@ -35,8 +34,8 @@ function BulletinDetailTable (props) {
   useEffect(async () => {
   }, [trialList])
   return (
-    <div className=' container mt-5'>
-      <Table className='table-responsive-sm' striped>
+    <div class="table-responsive-sm">
+      <table class="table">
         <thead className='tab-header'>
           <tr className='text-center'>
             <th>Número de expediente</th>
@@ -92,7 +91,7 @@ function BulletinDetailTable (props) {
             })
           }
         </tbody>
-      </Table>
+      </table>
     </div>
   )
 }

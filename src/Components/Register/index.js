@@ -61,7 +61,7 @@ function RegisterCard() {
 
 
     return (
-        <div className="container">
+        <div className="container responsive-body">
             <div className="row row-cols-1" id="register-form">
                 <IconBlack id="register-icon" />
                 <h4><b>Registro</b></h4>

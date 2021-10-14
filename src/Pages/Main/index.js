@@ -1,12 +1,14 @@
 import Footer from '../../Components/Footer'
 import NavBar from '../../Components/NavBar'
+import InputGeneric from '../../Components/Input'
 import BulletinTable from '../../Components/BulletinTable'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import SearchComponent from '../../Components/SearchComponent'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Container, Row, Col } from 'reactstrap';
 
-function Main () {
+function Main() {
   const history = useHistory()
   const logged = localStorage.getItem('authenticationToken')
   console.log(logged)
@@ -23,15 +25,15 @@ function Main () {
   const filterHandler = event => {
     const data = trialList
     const value = event.target.value
-    if ( ! value)
-    setFilterResult(trialList)
-    else{
-    const result = data.filter(trial => {
-      return trial.record.toLowerCase().includes(value.toLowerCase()) ||
-     trial.trial.plaintiff.toLowerCase().includes(value.toLowerCase()) ||
-     trial.trial.defendant.toLowerCase().includes(value.toLowerCase())
-    })
-    setFilterResult(result)
+    if (!value)
+      setFilterResult(trialList)
+    else {
+      const result = data.filter(trial => {
+        return trial.record.toLowerCase().includes(value.toLowerCase()) ||
+          trial.trial.plaintiff.toLowerCase().includes(value.toLowerCase()) ||
+          trial.trial.defendant.toLowerCase().includes(value.toLowerCase())
+      })
+      setFilterResult(result)
     }
   }
 
@@ -47,9 +49,9 @@ function Main () {
     })
     console.log({ responseData })
     if (responseData.data &&
-        responseData.data.data &&
-        responseData.data.data &&
-        responseData.data.data.activeTrials.length > 0
+      responseData.data.data &&
+      responseData.data.data &&
+      responseData.data.data.activeTrials.length > 0
     ) {
       setTrialList(responseData.data.data.activeTrials)
       setFilterResult(responseData.data.data.activeTrials)
@@ -58,16 +60,29 @@ function Main () {
   return (
     <>
       <NavBar />
-      <SearchComponent searchHandler = {filterHandler} />
-      {
-        trialList.length > 0 &&
-        <div className='responsive-body'>
-          <BulletinTable
-            trials={filterResult}
-          />
-        </div>
-      }
+      <Container className="responsive-body d-flex flex-column ">
+        <Row className="align-items-center">
+          <Col xs={12} md={8}>
+            <SearchComponent searchHandler={filterHandler} />
+          </Col>
+          <Col xs={12} md={4}>
+            <Link className="btn btn-primary my-4" to={{ pathname: "/busqueda" }} >Añadir Juicio</Link>
+          </Col>
+        </Row>
+        <Row className="mt-4">
+          <Col>
+          {
+              trialList.length > 0 &&
+                <BulletinTable
+                  trials={filterResult}
+                />
+            
+            }
+          </Col>
+        </Row>
+      </Container>
       <Footer />
+      
     </>
   )
 }

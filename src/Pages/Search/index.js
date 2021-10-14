@@ -10,8 +10,11 @@ function Search () {
   return (
     <>
       <NavBar />
-      <SearchForm/>
+        <div className="container responsive-body">
+        <SearchForm/>
       <BulletinTable />
+      </div>
+
       <Footer />
     </>
   )

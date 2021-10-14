@@ -65,7 +65,7 @@ function LoginCard (props) {
     }
   }
   return (
-    <div className='container'>
+    <div className='container responsive-body'>
       <div className='row row-cols-1' id='login-form'>
         <IconBlack id='login-icon' />
         <h4><b>Iniciar Sesion</b></h4>
