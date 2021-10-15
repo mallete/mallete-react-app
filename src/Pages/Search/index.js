@@ -70,7 +70,7 @@ function Search(props) {
     console.log({responseData})
     if (responseData.data &&
       responseData.data.data &&
-      responseData.data.data.activeTrials
+      responseData.data.data.activeTrial
     ) {
       toast.success('Tarea creada exitosamente',
         {
