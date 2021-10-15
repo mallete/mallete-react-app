@@ -30,7 +30,7 @@ function RegisterCard(props) {
             .then(function (response) {
                 // handle success
                 console.log(response);
-                toast("Bienvenido a Mallete!",
+                toast("Bienvenido, ahora puedes iniciar sesión!",
                     {
                         position: "top-right",
                         autoClose: 5000,
@@ -41,8 +41,9 @@ function RegisterCard(props) {
                         progress: undefined,
                     }
                 )
-                //setIsLogged(true)
-                history.push('/dashboard')
+                
+                setIsLogged(true)
+                history.replace('/dashboard')
             })
             .catch(function (error) {
                 // handle error

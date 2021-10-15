@@ -11,7 +11,7 @@ import {
   NavLink,
   Button
 } from 'reactstrap'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 
 function NavBar (props) {
@@ -25,7 +25,7 @@ function NavBar (props) {
     localStorage.removeItem("userId")
     localStorage.removeItem("authenticationToken")
     setIsLogged(false)
-    history.push("/")
+    history.replace("/")
   }
   return (
     <div>
@@ -37,13 +37,22 @@ function NavBar (props) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='ml-auto' navbar>
             <NavItem>
-              <NavLink className='ref link-navbar-logged' href='/busqueda'>Agregar Juicio</NavLink>
+              <Link className='ref link-navbar-logged nav-link' to={{
+                    pathname: '/busqueda',
+                  }}>Agregar Juicio</Link>
             </NavItem>
             <NavItem>
-              <NavLink className='ref link-navbar-logged' href='/dashboard/'>Juicios</NavLink>
+            <Link className='ref link-navbar-logged nav-link' to={{
+                    pathname: '/dashboard',
+                  }}>Juicios</Link>
             </NavItem>
             <NavItem>
-              <NavLink id='perfil' className='ref link-perfil' href="#" onClick={logout}>Perfil</NavLink>
+              <Link className='ref link-navbar-logged nav-link' to={{
+                    pathname: '/planes',
+                  }}>Planes</Link>
+            </NavItem>
+            <NavItem>
+              <NavLink id='perfil' className='ref link-perfil' href="#" onClick={logout}>Cerrar Sesión</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

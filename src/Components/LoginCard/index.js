@@ -45,7 +45,9 @@ function LoginCard (props) {
           progress: undefined
         })
       setIsLogged(true)
-      history.push('/dashboard')
+      //history.push('/dashboard')
+      history.replace('/dashboard')
+      //window.location.reload();
       console.log(loggedUser.data)
     }
     console.log(loggedUser)

@@ -75,7 +75,7 @@ function PlanCards() {
               <CardText>
                   <ul className="feature-list">
                     <li className='features'>
-                      <span class='material-icons'>folder_open</span>5 expedientes
+                      <span class='material-icons'>folder_open</span>20 expedientes
                       personalizados
                     </li>
                     <li className='features'>
@@ -103,7 +103,7 @@ function PlanCards() {
                 amount='300.00'
                 currency='MXN'
                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                onSuccess={(details, data) => {
+                onSuccess={async (details, data) => {
                   toast.success('Pago realizado con éxito',
                     {
                       position: 'top-right',
@@ -115,12 +115,12 @@ function PlanCards() {
                       progress: undefined,
                       transition: Flip
                     })
-                  history.push('/dashboard')
+                 
                   console.log(
                     'Transaction completed by ' + details.payer.name.given_name
                   )
                   // OPTIONAL: Call your server to save the transaction
-                  return axios({
+                  await axios({
                     url: updateUseUrl,
                     method: "patch",
                     headers: {
@@ -134,7 +134,9 @@ function PlanCards() {
                         paymentHistory: [data]
                       }
                     }
-                  })
+                  }) 
+                  history.replace('/dashboard')
+                  
                 }}
                 options={{
                   currency: 'MXN',

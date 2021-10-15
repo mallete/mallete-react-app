@@ -41,6 +41,8 @@ function BulletinTable (props) {
             trials &&
             trials.length > 0 &&
             trials.map( (activeTrial, index) => {
+              if(!activeTrial.trial)
+                return;
               const { record, plaintiff, defendant, bulletins, _id } = activeTrial.trial
               console.log(activeTrial._id)
               let lastBulletin = {}

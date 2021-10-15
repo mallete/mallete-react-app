@@ -10,11 +10,11 @@ import { Container, Row, Col } from 'reactstrap';
 
 function Main(props) {
   const history = useHistory()
-  const logged = localStorage.getItem('authenticationToken')
+  /*const logged = localStorage.getItem('authenticationToken')
   console.log(logged)
   if (logged === '' || logged == null) {
     history.push('/')
-  }
+  }*/
   const authToken = localStorage.getItem('authenticationToken')
   const userId = localStorage.getItem('userId')
   const [trialList, setTrialList] = useState([])
