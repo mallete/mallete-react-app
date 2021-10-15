@@ -70,7 +70,7 @@ function Search(props) {
     console.log({responseData})
     if (responseData.data &&
       responseData.data.data &&
-      responseData.data.data.activeTrial
+      responseData.data.data.activeTrials
     ) {
       toast.success('Tarea creada exitosamente',
         {
@@ -83,7 +83,7 @@ function Search(props) {
           progress: undefined,
           transition: Flip
         })
-      history.push(`/trial-detail/${responseData.data.data.activeTrial._id}`);
+      history.push(`/trial-detail/${responseData.data.data.activeTrials._id}`);
 
     } else {
       toast.error('Ups! algo salio mal, intentalo de nuevo',
