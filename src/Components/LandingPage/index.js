@@ -15,7 +15,7 @@ const LandingPage = () => {
         <section className='image-container'>
           <div className='d-flex flex-column align-items-center'>
             <h1 className='title'>Bienvenido a Mallete</h1>
-            <button id='btn-img' type='button' className='btn btn-outline-light mt-3'>Saber más</button>
+            <a id='btn-img' type='button' className='btn btn-outline-light mt-3' href="#saber-mas">Saber más</a>
           </div>
         </section>
         {/* Main Image */}
@@ -23,7 +23,7 @@ const LandingPage = () => {
           <div className='row ml-4'>
             <div className='col'>
               <div className='card card-landing'>
-                <h2 className='card-title'>¿Qué te ofrece Mallete?</h2>
+                <h2 className='card-title' id="saber-mas">¿Qué te ofrece Mallete?</h2>
               </div>
             </div>
           </div>

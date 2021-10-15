@@ -34,7 +34,7 @@ const NavigationBar = () =>{
               <NavLink className="links-landing mr-5" href="/planes/">Planes</NavLink>
             </NavItem>
             <NavItem className="mr-2">
-                <Button className="" text="Log in" template="btn-landing btn-login mr-4" handler={inputHandlerLogin}/>
+                <Button className="" text="Entrar" template="btn-landing btn-login mr-4" handler={inputHandlerLogin}/>
             </NavItem>
             <NavItem className="mr-5">
                 <Button className="" text="Registro" template="btn-landing btn-registro" handler={inputHandlerRegister}/>
