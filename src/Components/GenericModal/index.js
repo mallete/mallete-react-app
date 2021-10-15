@@ -12,31 +12,33 @@ const { REACT_APP_API_ENDPOINT } = process.env
 const GenericModal = (props) => {
     const updateUseUrl = `${REACT_APP_API_ENDPOINT}/tasks`
     const authenticationToken = localStorage.getItem('authenticationToken')
+    const [extraClass,setExtraClass] = useState("")
     const {
-        
+        task = {},
         actionButton,
         actionButtonClasses,
         className,
         modalBody,
-        trial,
-        record
+        record,
+        trialId,
+        bulletin,
     } = props;
     const ModalBodyContent = props.modalBody
     const [modal, setModal] = useState(false)
-    const [formData, setFormData] = useState({ title: '', content: '', limitDate: '', assignee: '' })
+    const { title = '', content = '', limitDate =  '', assignee= '' } = task
+    const [_id,setId] = useState(task._id)
+    const [formData, setFormData] = useState({ title,content,limitDate,assignee})
     const [taskAlreadyExist, setTaskAlreadyExist] = useState(false)
     const toggle = () => setModal(!modal)
 
     const submitHandler = () => {
-        console.log('SubmitHanlderTriggered')
-        console.log(formData)
-         //Aqui va el POST axios
-         console.log(moment(formData.limitDate))
+
          const sendData = {
             ...formData,
             limitDate: moment(formData.limitDate),
             record,
-            activeTrial:trial
+            activeTrial:trialId, 
+            bulletin: bulletin 
         }
          axios({
             url: updateUseUrl,
@@ -47,7 +49,7 @@ const GenericModal = (props) => {
             data: sendData
           })
           .then(function (response) {
-            console.log(response)
+
             //Si es success llamar
             toast.success('Tarea creada exitosamente',
                     {
@@ -60,12 +62,68 @@ const GenericModal = (props) => {
                       progress: undefined,
                       transition: Flip
                     })
+
+            setId( response.data.data.tasks._id)
+            setExtraClass("active-task")
+            toggle()
+            
+        }) 
+        //Mandar toast de que algo salio mal
+        .catch(function (error) {
+            toast.error('Ups! algo salio mal, intentalo de nuevo',
+                {
+                  position: 'top-right',
+                  autoClose: 3000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: false,
+                    draggable: true,
+                  progress: undefined,
+                  transition: Flip
+                })
+        })
+    }
+
+    /**
+     * Crear Funcion updateDataHandler para hacer patch de la data
+     */
+    const updateDataHandler = () => {
+        
+        const sendData = {
+            ...formData,
+            limitDate: moment(formData.limitDate),
+            record,
+            activeTrial:trialId, 
+            bulletin: bulletin 
+        }
+        const patchUrl = `${REACT_APP_API_ENDPOINT}/tasks/${_id}`
+        axios({
+            url: patchUrl ,
+            method: "patch",
+            headers: {
+              authorization: authenticationToken
+            },
+            data: sendData
+          })
+          .then(function (response) {
+
+            //Si es success llamar
+            toast.success('Tarea actualizada exitosamente',
+                    {
+                      position: 'top-right',
+                      autoClose: 3000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: false,
+                        draggable: true,
+                      progress: undefined,
+                      transition: Flip
+                    })
             toggle()
 
         }) 
         //Mandar toast de que algo salio mal
         .catch(function (error) {
-            console.log(error)
             toast.error('Ups! algo salio mal, intentalo de nuevo',
                 {
                   position: 'top-right',
@@ -79,32 +137,20 @@ const GenericModal = (props) => {
                 })
         })
     }
-
-    /**
-     * Crear Funcion updateDataHandler para hacer patch de la data
-     */
-    const updateDataHandler = () => {
-        axios.patch((updateUseUrl))
-    }
     
-    useEffect(() => {
-        setTaskAlreadyExist((formData.id))
-        //En el efecto cuando carga [], checar si se mando una propiedad taskId
-        //Si existe el taskId entonces intentar traer el tasks para popular la info -> /tasks/:id
-        //
-        //si encuentra la tarea, set en true taskAlreadyExist
-        //acutalizar formData para que el form popule la data
-
-        setFormData({ title:"este es un title", content:"un content" })
-    }, [])
+    const selectMethod = (event) =>{
+        if(_id)
+        updateDataHandler()
+        else
+        submitHandler()
+    }
 
     const inputHandler = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
-        console.log(formData)
     }
     return (
         <div>
-            <div onClick={toggle} className={actionButtonClasses}>
+            <div onClick={toggle} className={`${actionButtonClasses} ${extraClass}`}>
                 {actionButton}
             </div>
             <Modal isOpen={modal} toggle={toggle} className={className}>
@@ -113,7 +159,7 @@ const GenericModal = (props) => {
                         {React.cloneElement(modalBody, {inputHandler, formData})}
                 </ModalBody>
                 <ModalFooter>
-                    <Button className="btn-modal-save" onClick={taskAlreadyExist ? updateDataHandler: submitHandler}>Guardar</Button>{' '}
+                    <Button className="btn-modal-save" onClick={selectMethod}>Guardar</Button>{' '}
                     <Button className="btn-modal-cancel" onClick={toggle}>Cancel</Button>
                 </ModalFooter>
             </Modal>

@@ -4,7 +4,9 @@ import moment from 'moment'
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import GenericTable from '../../Components/GenericTable';
-//import GenericModal from "../GenericModal"
+import GenericModal from '../../Components/GenericModal'
+import ModalForm from '../../Components/ModalForm'
+
 import BulletinDetailTable from '../../Components/BulletinDetailTable'
 import { Container, Row, Col, Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
@@ -43,28 +45,25 @@ function TrialDetail(props) {
             codeName: "rawContent"
         },
         {
-            displayName: "Notificación",
+            displayName: "Tarea",
             codeName: "notification"
-        },
+        },/*
         {
             displayName: "Tareas",
             codeName: "addNotification"
-        },
+        },*/
     ]
     const validateColumn = (columnName, columns) => {
         return columns.filter(({ codeName }) => codeName === columnName).length > 0
     }
-    /**
-     * Convert a template string into HTML DOM nodes
-     * @param  {String} str The template string
-     * @return {Node}       The template HTML
-     */
-    var stringToHTML = function (str) {
-        var dom = document.createElement('div');
-        dom.innerHTML = str;
-        return dom;
-    };
+ 
     useEffect(async () => {
+        const relatedTasks = await getAllRelatedTasks({
+            params: {
+                activeTrial:id
+            }
+        })
+
         const responseData = await axios({
             url: '/active-trials/' + id,
             baseURL: REACT_APP_API_ENDPOINT,
@@ -76,7 +75,7 @@ function TrialDetail(props) {
             responseData.data.data.activeTrial
         ) {
             setactiveTrial(responseData.data.data.activeTrial)
-
+            const { _id,record, } = responseData.data.data.activeTrial
             const bulletins = responseData.data.data.activeTrial.trial.bulletins.reverse().map((bulletin, index) => {
                 let column = Object.keys(bulletin).reduce((accum, bulletinProp) => {
                     const includeColumn = validateColumn(bulletinProp, headers)
@@ -98,28 +97,69 @@ function TrialDetail(props) {
                         }]
                     return accum
                 }, [])
+                const relatedTask = relatedTasks.reduce( (reducedTaskList, task, index) => {
+                    if(task.bulletin === bulletin._id)
+                        return  [...reducedTaskList, task]
+                    return reducedTaskList
+                },[])
+
                 const notification = {
                     propName: "notification",
                     content: (
-                        <span class='material-icons active-notification  ml-1'>
-                            event
-                        </span>
+                        <>
+                            { 
+                                
+                                <GenericModal
+                                    buttonLabel='Hello'
+                                    task = {relatedTask.length > 0 ? relatedTask[0]: {}} 
+                                    trialId={_id}
+                                    record={record}
+                                    bulletin={bulletin._id}
+                                    actionButton={
+                                        (
+                                            <span className={`material-icons ml-1 ${ relatedTask.length > 0 ? "active-task": "unactive-task" }`}>
+                                                event
+                                            </span>
+                                        )
+                                    }
+                                    modalBody={(
+                                        <ModalForm />
+                                        )}
+                                    /> 
+                            }
+                        </>
                     )
-                }
+                }/*
                 const addNotification = {
                     propName: "addNotification",
                     content: (
+                        
                         <span class='material-icons active-notification material-icons-outlined  ml-1'>
                             calendar_today
                         </span>
                     )
-                }
-                return [...column, notification, addNotification]
+                }*/
+                return [...column, notification]
             })
             setRowsData(bulletins)
-            console.log(bulletins)
+
         }
     }, [])
+    const getAllRelatedTasks = async ({params}) =>{
+        const request = `${REACT_APP_API_ENDPOINT}/tasks/search`
+        const responseData = await axios.get(request, {
+            headers: { 'authorization': authToken },
+            params: {
+                ...params
+            }
+        })
+        if (responseData.data &&
+            responseData.data.data 
+        ) {
+            return  responseData.data.data.tasks;
+        }
+        return []
+    }
     return (
         <>
             <Container className="responsive-body">
@@ -129,7 +169,7 @@ function TrialDetail(props) {
                         <Card>
                             <CardBody>
                                 <CardTitle tag="h5">
-                                    Hellow 
+                                    Informacion General:
                                 </CardTitle>
                                 <Row>
                                     <Col xs={12} md={6}>

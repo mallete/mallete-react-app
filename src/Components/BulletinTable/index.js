@@ -22,6 +22,7 @@ function BulletinTable (props) {
   }, [])
   useEffect(async () => {
   }, [trialList])
+  
   return (
     <div className=' container mt-5'>
       <Table className='table-responsive-sm' striped>
@@ -39,11 +40,16 @@ function BulletinTable (props) {
           {
             trials &&
             trials.length > 0 &&
-            trials.map((activeTrial, index) => {
+            trials.map( (activeTrial, index) => {
               const { record, plaintiff, defendant, bulletins, _id } = activeTrial.trial
               console.log(activeTrial._id)
               let lastBulletin = {}
-              if (bulletins.length > 0) { lastBulletin = bulletins[bulletins.length - 1] }
+              let lastTask = activeTrial.lastTask || {}
+              if (bulletins.length > 0) { 
+                lastBulletin = bulletins[bulletins.length - 1] 
+
+                
+              }
               const lastUpdateDate = moment()
               return (
                 <tr key={index}>
@@ -62,9 +68,10 @@ function BulletinTable (props) {
                   </td>
                   <td data-column-name='tasks'>
                     <GenericModal
-                      buttonLabel='Hello'
-                      trial={_id}
+                      task={lastTask}
+                      trialId={_id}
                       record={record}
+                      bulletin={lastBulletin._id}
                       actionButton={
                           (<span class=' ml-1 material-icons active-notification'>
                             event_busy

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import './style.scss'
-
+import moment from 'moment';
 const ModalForm = (props) => {
     const {inputHandler,formData} = props
-    const {title, content } = formData
+    const { title,content,limitDate,assignee} = formData
+    const dateFormat = 'MM/DD/YYYY'
+    const formatedDate= moment(limitDate).format(dateFormat)
+    
+
     return (
         <> 
             <Form>
@@ -17,7 +21,7 @@ const ModalForm = (props) => {
                     id="exampleUrl"
                     placeholder=""
                     onChange={inputHandler}
-                    value={formData.title}
+                    value={title}
                     />
                 </FormGroup> 
                 <FormGroup>
@@ -41,6 +45,7 @@ const ModalForm = (props) => {
                         id="exampleDate"
                         placeholder="date placeholder"
                         onChange={inputHandler}
+                        value={limitDate}
                     />
                 </FormGroup>
                     <FormGroup>
@@ -52,6 +57,7 @@ const ModalForm = (props) => {
                         id="exampleEmail"
                         placeholder="@email"
                         onChange={inputHandler}
+                        value={assignee}
                     />
                 </FormGroup>
             </Form>

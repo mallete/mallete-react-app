@@ -14,17 +14,34 @@ td{
 }
 .active-notification{ 
     color:$red;
-    margin-left: 2.5rem;
+    justify-content: center;
+    display: flex;
+    /*margin-left: 2.5rem;*/
+    span{
+        color:$red;
+    }
 }
-.active-notification-task{
+.active-task{
+    cursor: pointer;
     color: $red;
-    margin-left: 1rem;
+    
+    justify-content: center;
+    display: flex;
+    span{
+        color:$red;
+    }
 }
 .unactive-notification{
     color: $valspar;
-    margin-left: 2.5rem;
+    justify-content: center;
+    display: flex;
 }
-.unactive-notification-task{
+.unactive-task{
+    cursor: pointer;
     color: $valspar;
-    margin-left: 1rem;
+    justify-content: center;
+    display: flex;
+    span{
+        color:$red;
+    }
 }

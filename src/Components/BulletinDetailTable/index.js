@@ -28,9 +28,50 @@ function BulletinDetailTable (props) {
         responseData.data.data &&
         responseData.data.data.activeTrials.length > 0
     ) {
-      setTrialList(responseData.data.data.activeTrials)
+      const processedData  = responseData.data.data.activeTrials.map( async activeTrial =>{
+        const lastBulletin = activeTrial.bulletins[activeTrial.bulletins.length - 1] 
+        console.log({lastBulletin})
+        const relatedTasks = await getAllRelatedTasks({
+              params: {
+                  activeTrial:activeTrial._id
+              }
+          })
+          const relatedTask = relatedTasks.reduce( (reducedTaskList, task, index) => {
+            if(task.bulletin === lastBulletin._id)
+                return  [...reducedTaskList, task]
+            return reducedTaskList
+        },[])
+          if(relatedTask.length>0){
+              console.log({relatedTask})
+            return {...activeTrial, lastTask:relatedTask[0] }
+          }
+         
+          return activeTrial
+      })
+     
+
+
+      setTrialList(processedData)
     }
   }, [])
+
+  
+  const getAllRelatedTasks = async ({params}) =>{
+    const request = `${REACT_APP_API_ENDPOINT}/tasks/search`
+    const responseData = await axios.get(request, {
+        headers: { 'authorization': authToken },
+        params: {
+            ...params
+        }
+    })
+    if (responseData.data &&
+        responseData.data.data 
+    ) {
+        return  responseData.data.data.tasks;
+
+    }
+    return []
+}
   useEffect(async () => {
   }, [trialList])
   return (
@@ -52,7 +93,6 @@ function BulletinDetailTable (props) {
             trialList.length > 0 &&
             trialList.map((activeTrial, index) => {
               const { record, plaintiff, defendant, bulletins, _id } = activeTrial.trial
-              console.log(activeTrial._id)
               let lastBulletin = {}
               if (bulletins.length > 0) { lastBulletin = bulletins[bulletins.length - 1] }
               const lastUpdateDate = moment()
